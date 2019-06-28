@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Keeping an exotic pet in your home!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emma Rand" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+background-image: url(pics/useR2019.png)
+background-position: 4% 0%
+background-size: 250px
+
+
+class: inverse, right, bottom
+
+# Keeping an exotic pet in your home!
+## Taming Python to live in RStudio because&lt;br&gt;sometimes the best language is both!
+&lt;br&gt;
+### Emma Rand&lt;br&gt;emma.rand@york.ac.uk
+
+
+---
+class: center, middle
+
+# But first.....Who am I?
+
+---
+
+
+# Who I am?
+
+.pull-left[
+
+![York Lower Petergate with the cathedral in the background](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Lower_Petergate_in_York%2C_England.jpg/324px-Lower_Petergate_in_York%2C_England.jpg)
+
+]
+
+.pull-right[
+
+Lecturer (Assistant Professor) University of York, UK
+
+some other stuff
+
+]
+
+---
+background-image: url(pics/member_institute_logos.png)
+background-position: 95% 7%
+
+# Thank yous!
+
+## To the local organisation committee
+
+* Nathalie Vialaneix (chair), MIAT, INRA  
+* Sébastien Déjean (vice-chair), Institut de Mathématiques de Toulouse, Université Toulouse 3 Paul Sabatier  
+* Anne Ruiz-Gazen (vice-chair), Toulouse School of Economics, Université Toulouse 1 Capitole  
+* Heather Turner (vice-chair), statistical consultant and associate fellow of the Statistics Department at the University of Warwick  
+* Aurore Archimbaud, Toulouse School of Economics  
+* Christophe Bontemps, Toulouse School of Economics, INRA  
+* Robert Faivre, MIAT, INRA  
+* Xavier Gendre, Institut de Mathématiques de Toulouse, Université Toulouse 3 Paul Sabatier  
+* Thibault Laurent, Toulouse School of Economics, CNRS  
+* Élise Maigné, Observatoire du Développement Rural, INRA  
+* Pierre Neuvial, Institut de Mathématiques de Toulouse, CNRS  
+* Rémi Servien, InTheRes, INRA  
+* Matthias Zytnicki, MIAT, INRA  
+
+---
+# Thank yous! 
+
+## For funding
+
+.pull-left[
+To the organisers and their sponsers
+
+![useR2019 logo](pics/useR2019.png)
+
+
+]
+
+.pull-right[
+
+
+![r consortium logo](pics/r_consortium.png)
+
+My institution  
+
+![University of York logo](pics/UoY-logo.png)
+
+]
+
+
+---
+# Thank yous! 
+
+## Leila Khajavi
+
+Hi Leila! would you like to give me a picture and biography?
+
+---
+# Thank yous! 
+## Everyone here for coming!
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg)
+background-position: 95% 95%
+background-size: 250px
+
+# Why `reticulate`?
+
+You finally found the **perfect** solution to a data problem!
+
+### 😁
+
+--
+
+but it's written in Python  
+
+### 😬
+
+--
+
+You're collaborating with some great people
+
+### 😁
+
+--
+
+but they mainly use Python!  
+You want to collaborate more easily and seamlessly. 
+
+---
+# Why `reticulate`?
+
+You could move to the darkside 🐍...
+
+But you're familiar 💙 with R...
+
+![R logo](pics/R_logo.png)
+
+---
+
+# Why `reticulate`?
+
+But you're familiar with R  
+**and very at home in RStudio...**  
+&amp;nbsp;  
+&amp;nbsp;  
+&amp;nbsp;  
+
+![cartoon house labelled RStudio](pics/house.png)
+
+---
+# Why `reticulate`?
+
+But you're familiar with R  
+and very at home in RStudio  
+**because it's comfortable...**  
+&amp;nbsp;  
+&amp;nbsp;  
+
+![cartoon house labelled RStudio with sleeping cat](pics/house_cat.png)
+
+---
+# Why `reticulate`?
+
+But you're familiar with R  
+and very at home in RStudio  
+because it's comfortable  
+**and has many tools you like...**  
+&amp;nbsp;  
+
+![cartoon house labelled RStudio with sleeping cat and tidyverse hex stickers](pics/house_cat_tools.png)
+---
+
+# Why `reticulate`?
+
+But you're familiar with R  
+and very at home in RStudio  
+because it's comfortable  
+and has many tools you like  
+**and the sun always shines!**  
+
+![cartoon house labelled RStudio with sleeping cat and tidyverse hex stickers in the sun](pics/house_cat_tools_sun.png)
+
+---
+# Why `reticulate`?
+
+So even though Python has some great tools...  
+&amp;nbsp;  
+&amp;nbsp;  
+&amp;nbsp;  
+&amp;nbsp;  
+
+![cartoon house labelled RStudio with sleeping cat and tidyverse hex stickers in the sun](pics/house_cat_tools_sun.png)![cartoon house labelled python](pics/house_python.png)
+
+
+---
+# Why `reticulate`?
+
+So even though Python has some great tools  
+**and some very cool people...**  
+&amp;nbsp;  
+&amp;nbsp;  
+&amp;nbsp;  
+
+![cartoon house labelled RStudio with sleeping cat and tidyverse hex stickers in the sun](pics/house_cat_tools_sun.png)![cartoon house labelled python with cool cat](pics/house_python_cat.png)
+
+---
+# Why `reticulate`?
+
+
+So even though Python has some great tools  
+and some very cool people  
+**you don't want to move in!**  
+&amp;nbsp;  
+&amp;nbsp;  
+
+![cartoon house labelled RStudio with sleeping cat and tidyverse hex stickers in the sun](pics/house_cat_tools_sun2.png)![cartoon house labelled python with cool cat](pics/house_python_cat.png)
+
+---
+
+# Why `reticulate`?
+
+Thankfully, there's Reticulate
+
+JJ Allaire, Kevin Ushey and Yuan Tang (2018). reticulate: Interface to 'Python'. R package version  1.10. https://CRAN.R-project.org/package=reticulate  
+
+&amp;nbsp;  
+
+![RStudio and Pythonhouses joined by the reticulate package logo](pics/house_reticulate.png)
+
+
+
+
+---
+
+class: inverse, center, middle
+
+# Overview
+
+---
+
+# Overview
+
+* Very brief background to R and Python  
+* Broad overview of [Reticulate](https://rstudio.github.io/reticulate)  
+  Why use it, what are its key features, how can it be used, set up recommendations  
+* Aside: A little basic Python  
+  Assignment, data types and structures, importing modules, methods, some differences an R user will notice  
+* Examples of using `reticulate`  
+  * Interactively using `repl_python()`  
+  * Sourcing  Python scripts
+  * Importing Python modules 
+  * Complete integration in R markdown  
+
+---
+
+# Background
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; R &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Python &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Released &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1995 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1991 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Author &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ihaka &amp;amp; Gentleman, Chambers &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; van Rossum &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Purpose &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; User-friendly data analysis and visualisation for 'non-programmers' &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Object-oriented,
+                                     Readable, general purpose programming language &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Users most likely to be &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Statistics graduates,  Academics, data scientists &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Computer Science graduates, Software engineers &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Features &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R Markdown, tidyverse &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Integration with web aps, Unified Machine learning API &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+# Why use Reticulate
+
+## Speed up your workflow
+
+* Problem solving is the defining feature of a data scientist
+* Language should be secondary
+* Choice of language drive by early impressions of the data. Change in direction later means lost time in translating
+
+## Facilitate collaboration
+
+* Allows you to leverage the skills expertise of the whole team
+* Solves the hardest problem in Data Science - People&lt;sup&gt;1&lt;/sup&gt;. 
+* Many Data Scientists know both and they are happier&lt;sup&gt;2&lt;/sup&gt;
+
+.footnote[
+[1] Mangano, 2019  
+[2] Stack Overflow Developers' Survey, NanoMathius, 2018  
+]
+
+---
+
+# Reticulate
+
+
+exicting implementations
+
+---
+# Reticulate
+
+## Key features
+
+1. Ability to call Python from R  
+
+2. Translation between R objects and Python objects  
+ 
+   Can be automatic or explicit  
+   RStudio 1.2
+
+3. Flexible binding to different Python environments  
+
+
+---
+# Reticulate
+
+## Alllows you to use Python in four ways:  
+
+1. Interactively in the console: `repl_python()`  
+  
+   read–eval–print loop (REPL)  
+
+2. Sourcing Python scripts  
+
+3. Importing Python modules  
+
+4. In R Markdown documents  
+
+Methods 2, 3 and 4 are likely to be the ones you would use in a data analysis project. 
+
+However, We will start with `repl_python()` to build our understanding.
+---
+
+# Ingredients
+
+* [RStudio 1.2](https://www.rstudio.com/products/rstudio/)  
+   1.2 is needed for some of the most useful R Markdown features
+--
+
+* The `reticulate` package  
+   
+   ```r
+   install.packages("reticulate")
+   ```
+.centre[
+![reticulate-logo](pics/reticulated_python.png)]
+--
+
+* Python  
+  [Anaconda 3](https://www.anaconda.com/distribution/) 
+    recommended for data science, includes many useful libraries.
+--
+    
+*  Any other Python modules your Python code depends on (not needed here)
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png)
+background-position: 10% 10%
+
+--
+.right[
+![snake](pics/anconda-1.jpg)]
+
+--
+.right[
+![nicki_minaj](pics/nicki.jpg)]
+---
+
+class: inverse, center, middle
+
+# A little Python (needs finishing)
+
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+
+# Python fundamentals
+Suppose you wanted to created an array of 5 numbers. 
+
+In R you might do this as:
+
+```r
+r_array &lt;- c(4, 5, 1, 6, 8)
+```
+
+In Python you might use a list&lt;sup&gt;1&lt;/sup&gt;
+
+some stuff to complete including how lists differ from vectors/arrays esp
+2 * [1,2,3] is [1,2,3,1,2,3] not [2,4,6] but fairly brief
+
+.footnote[
+[1] Python doesn't have a native array data structure but it has the list.   
+]
+
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+
+# Python fundamentals
+
+Instead you might use the [NumPy package](http://www.numpy.org/)&lt;sup&gt;1&lt;/sup&gt;. 
+
+You need to `import` NumPy, then use it's array() function.
+
+The Python code looks like this:
+
+```python
+import numpy as np
+python_array = np.array([4, 5, 1, 6, 8])
+```
+
+.footnote[
+[1] NumPy is the fundamental package for scientific computing with Python.
+
+]
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+# Python fundamentals
+
+to include:
+assignment - uses equal  
+import vs library  
+attributes, methods, functions  
+print()  
+
+---
+
+class: inverse, center, middle
+
+# How: Using Python in the console
+## `reticulate::repl_python()`
+---
+
+# Using Python in the console
+
+## Steps
+
+We are going to use Python interactively in the console.  
+
+We will  
+* Start a Python session from our R session  
+* Create a NumPy array  
+* Use the NumPy array  
+  * find its size (an attribute)   
+  * calculate its mean (a method)  
+* End the Python session  
+* Access the NumPy array from our R session  
+    
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+We are going to be moving between Python and R sessions.
+
+Which could get confusing!
+
+--
+
+What session you are in **at the start of a slide** is indicated like this:
+
+.pull-left[
+
+## 🐍 _Sub-heading_
+You are working interactively with python and your prompt should look like this: 
+
+```r
+&gt;&gt;&gt;
+```
+You may **finish** the slide in an R session
+]
+
+--
+.pull-right[
+
+## 💙 _Sub-heading_
+You are working interactively with R and your prompt should look like this:
+
+```r
+&gt;
+```
+You may **finish** the slide in an Python session
+]
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Start a Python session
+
+Load the reticulate package
+
+```r
+library(reticulate)
+```
+--
+
+And use the function `repl_python()`:
+
+
+```r
+&gt;  repl_python() 
+Python 3.6.5 (C:\Apps\ANACON~1\python.exe)
+Reticulate 1.10 REPL -- A Python interpreter in R.
+&gt;&gt;&gt;  
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 🐍 repl_python()
+
+
+```r
+&gt;  repl_python() 
+*Python 3.6.5 (C:\Apps\ANACON~1\python.exe)
+*Reticulate 1.10 REPL -- A Python interpreter in R.
+&gt;&gt;&gt;  
+```
+
+* You get a message to tell you what version of Python you're using and where it is  
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 🐍 repl_python()
+
+
+```r
+&gt;  repl_python() 
+Python 3.6.5 (C:\Apps\ANACON~1\python.exe)
+Reticulate 1.10 REPL -- A Python interpreter in R.
+*&gt;&gt;&gt;  
+```
+
+* You get a message to tell you what version of Python you're using and where it is  
+
+* `&gt;&gt;&gt;` indicates the Python prompt  
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 🐍 Make a NumPy array
+
+Import the [NumPy package](http://www.numpy.org/)
+
+```r
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; 
+```
+--
+and create an array in the console
+
+```r
+&gt;&gt;&gt; python_array = np.array([4, 5, 1, 6, 8])
+&gt;&gt;&gt; 
+```
+
+--
+### Success! 🎇 
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## Oh! 😕
+But nothing appears in your R environment!
+  
+![](pics/empty_env.png)
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 🐍 Where is our NumPy array?
+Can Python can find it? 
+##🔍
+
+--
+
+
+```r
+&gt;&gt;&gt; python_array
+array([4, 5, 1, 6, 8])
+&gt;&gt;&gt;
+```
+--
+## 👍 🙌
+
+Great, the Python session can see it!
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 🐍 Work with a NumPy array
+
+Check the object type of `python_array`:
+
+
+```r
+&gt;&gt;&gt; type(python_array)
+&lt;class 'numpy.ndarray'&gt;
+&gt;&gt;&gt; 
+```
+
+--
+
+Find the size of `python_array` with:
+
+
+```r
+&gt;&gt;&gt; python_array.size
+5
+&gt;&gt;&gt;
+```
+
+--
+
+`size` is an *attribute* of NumPy arrays. 
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+
+## 🐍Work with a NumPy array
+
+Find the mean of `python_array`
+
+
+```r
+&gt;&gt;&gt; python_array.mean()
+4.8
+&gt;&gt;&gt;
+```
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 🐍 Bye bye Python
+
+Let's exit Python
+
+```r
+&gt;&gt;&gt; exit
+&gt;
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Hello R
+
+&amp;nbsp;
+
+
+```r
+&gt;&gt;&gt; exit
+*&gt;
+```
+
+The R prompt is returned
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Now where is `python_array`?
+
+.pull-left[
+![](pics/empty_env.png) 
+]
+
+.pull-right[
+Our environment is still empty
+]
+
+--
+
+But we **can** access the Python object using `py$...`
+
+
+```r
+&gt; py$python_array
+[1] 4 5 1 6 8
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Accessing python-created objects
+
+And we have normal command completion so typing `py$` followed by the TAB key ⭾ will list the available python objects.
+
+
+![image of command completion for py$ showing np, python_array, r, R, sys](pics/command_completion2.png)
+
+--
+
+Notice we have more than `python_array`. We will return to this in a few slides.
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Accessing python-created objects
+
+`reticulate` makes these python-created objects behave how you expect them to in R.
+
+
+```r
+&gt; py$python_array * 2
+[1]  8 10  2 12 16
+```
+
+
+```r
+&gt; py$python_array * py$python_array
+[1] 16 25  1 36 64
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 R functions on python-created objects
+
+They behave the way you expect them to because they are converted R objects
+when used!
+
+
+
+```r
+&gt; class(py$python_array)
+[1] "array"
+```
+`py$python_array` is a one-dimensional array
+
+numpy.ndarray `\(\rightarrow\)` array
+
+And look! 👀
+We can use R functions on python-created objects
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 R functions on python-created objects
+
+The mean...
+
+
+```r
+&gt; mean(py$python_array)
+[1] 4.8
+```
+... and length of the array
+
+```r
+&gt; length(py$python_array)
+[1] 5
+```
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 R functions on python-created objects
+
+You can assign the python object explicitly
+
+
+```r
+&gt; r_array &lt;- py$python_array
+```
+
+![the r environment showing the newly created r_array](pics/r_env.png)
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Python methods on python-created objects
+
+Remember this?
+![image of command completion for py$ showing np, python_array, r, R, sys](pics/command_completion2.png)
+
+We have access to the `np` object which results from from importing `NumPy` as `np` in our Python session.
+
+This gives us access to all the NumPy attributes and methods.
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## 💙 Python methods on python-created objects
+
+.pull-left[
+
+🐍 In Python `np` attributes are applied by following the object with a dot: 
+
+_`object_name.attribute_name`_
+
+For example, we found the size of `python_array` with:
+
+
+```r
+&gt;&gt;&gt; python_array.size
+5
+```
+]
+
+--
+.pull-right[
+
+💙 In R we access and apply `np` attributes in a R like way: 
+
+`py$np$` _`.attribute_name(object_name)`_
+
+So to use the size attribute on `py$python_array`:
+
+
+```r
+&gt; py$np$size(py$python_array)
+[1] 5
+```
+]
+
+--
+ 
+**This would be a strange thing to do!** 
+
+but I found it helped me understand the _reticulation_!
+---
+
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## Why strange??
+
+Because if you already had a python-created object on which you wanted to use some Python methods before doing further work in R, you would more naturally
+
+* Use those methods in Python in a Python way  
+* Then access the result in R for further work  
+
+--
+
+Than
+* access the object in R
+* apply python methods to a python object in an R-like way in an R session
+* Then do your further work
+
+---
+class: inverse, center, middle
+
+# How: Using Python in R Markdown
+## 
+
+---
+# Stuff to add!
+
+---
+# font colour test
+Roses are &lt;span style="     color: red !important;" &gt;red&lt;/span&gt;,
+
+violets are &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: blue !important;" &gt;blue&lt;/span&gt;
+
+&lt;style&gt;
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+&lt;/style&gt;
+&lt;div class = "blue"&gt;
+
+- This is my first conclusion  
+- This is my second conclusion  
+
+&lt;/div&gt;
+
+
+---
+
+# References and credits
+
+---
+
+&lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"&gt;user2019 Tutorial: Taming Python to live in RStudio&lt;/span&gt; by &lt;span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName"&gt;Emma Rand&lt;/span&gt; is licensed under a &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/a&gt;.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
