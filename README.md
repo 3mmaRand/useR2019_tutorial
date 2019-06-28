@@ -5,5 +5,6 @@ Following Jenny Bryan's [Happy Git and GitHub for the useR](https://happygitwith
 
 From RStudio
 
+From github
 
 
