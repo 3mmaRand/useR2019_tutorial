@@ -1,0 +1,144 @@
+---
+title: "Reticulated Machine Learning"
+author: "Emma Rand"
+date: "27/06/2019"
+output: html_document
+---
+# Classification of the instrument used in Audio segments
+
+## Introduction
+describe the processing of the audio files in to segments
+(would be good to process the audio into segments but requires pydub to be installled and environments and packages less straightforward. )
+
+description of the _segments.xlsx and _SegmentInfo.xlsx 
+
+## Set up
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R packages needed
+
+```{r message=FALSE, warning=FALSE}
+##########   R    ##########
+library(reticulate)
+library(ggplot2)
+
+```
+
+# Python libraries needed
+
+```{python}
+########## PYTHON ##########
+ # for imorting
+import os
+import pandas as pd
+
+# for PCA
+from sklearn.decomposition.pca import PCA
+
+# for plotting
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+```
+
+
+## Data import
+
+```{python}
+########## PYTHON ##########
+# read data in
+dirs_to_use = ["Violin", "Piano", "Violin_and_Piano"]
+
+df_seg = None
+df_info = None
+for d in dirs_to_use:
+    for f in os.listdir(d):
+        if f.endswith("segments.xlsx"):
+            if df_seg is None:
+                df_seg = pd.read_excel(os.path.join(d, f))
+            else:
+                df_seg = df_seg.append(pd.read_excel(os.path.join(d, f)),
+                                       ignore_index = True)
+        elif f.endswith("SegmentInfo.xlsx"):
+            if df_info is None:
+                df_info = pd.read_excel(os.path.join(d, f))
+                df_info["Instrument"] = pd.Series([d] * len(df_info),
+                                                  index = df_info.index)
+            else:
+                df = pd.read_excel(os.path.join(d, f))
+                df["Instrument"] = pd.Series([d]*len(df), index = df.index)
+                df_info = df_info.append(df, ignore_index = True)
+
+
+```
+
+
+## PCA in Python
+
+```{python}
+########## PYTHON ##########
+# Apply PCA
+mdl = PCA()
+new_data = mdl.fit_transform(df_seg)
+```
+
+## Biplot of Python's PCA1 v PCA2 using Python
+```{python}
+########## PYTHON ##########
+# booleans for instrument
+p = df_info["Instrument"] == "Piano"
+v = df_info["Instrument"] == "Violin"
+pv = df_info["Instrument"] == "Violin_and_Piano"
+plt.figure()
+plt.scatter(new_data[p, 0], new_data[p, 1], label = "Piano")
+plt.scatter(new_data[v, 0], new_data[v, 1], label = "Violin")
+plt.scatter(new_data[pv, 0], new_data[pv, 1], label = "Violin_and_Piano")
+plt.legend()
+plt.show()
+```
+
+## Biplot of Python's PCA1 v PCA2 using R
+```{r}
+##########   R    ##########
+# pca 1 is in new_data[ ,1]
+# pca 2 is in new_data[ ,2]
+
+df <- data.frame(pca1 = py$new_data[ ,1], 
+                 pca2 = py$new_data[ ,2], 
+                 instrument = py$df_info$Instrument)
+
+ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
+  geom_point()
+```
+
+
+## Scree plot of Python's PCA using Python
+```{python}
+########## PYTHON ##########
+plt.figure()
+plt.plot(mdl.explained_variance_)
+plt.show()
+
+```
+
+
+## Triplot of Python's PCA1 v PCA2 using Python
+```{python}
+########## PYTHON ##########
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.scatter(new_data[p, 0], new_data[p, 1], new_data[p, 2], label = "Piano")
+ax.scatter(new_data[v, 0], new_data[v, 1], new_data[v, 2], label = "Violin")
+ax.scatter(new_data[pv, 0], new_data[pv, 1], new_data[pv, 2], label = "Violin_and_Piano")
+plt.legend()
+plt.show()
+
+```
+
+ 
+
+

@@ -916,10 +916,178 @@ Than
 class: inverse, center, middle
 
 # How: Using Python in R Markdown
+
 ## 
 
 ---
-# Stuff to add!
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## The data
+
+We are going to work with some data derived from 9 pieces of music.
+
+4 are Piano only    
+4 are Violin only  
+1 is a sonata for Violin and Piano 
+
+5-second segments have been taken from each piece, processed into 5000 features and stored in an xlsx file.
+The maximum number of segments taken is 100.  
+We have 9 files  
+We will try to classify these segments.  
+
+The example and the original Python code to process the audio files and carry out the ML methods is by Michael Knight, University of Bristol
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## The data
+
+```{r echo=FALSE}
+datasummary <- read.table("music_ml/datasummary.txt", header = T, sep= ",")
+
+tab <- knitr::kable(datasummary, 
+             format = "html",
+             col.names = c("Piece", "Number of segments"),
+             row.names = FALSE) 
+kableExtra::kable_styling(tab,font_size = 15)
+```
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Let's get started...organising
+
+
+Start a new project<sup>1</sup>  called "music_ml"
+
+File | New Project
+
+.footnote[
+[1] link to information about using projects in RStudio
+]
+
+--
+
+Make a folders in your music_ml project folder called
+
+"Piano"  
+"Violin"  
+"Violin_and_Piano"  
+
+
+--
+
+Download the files from [github](https://github.com/3mmaRand/useR2019_tutorial/music_ml)
+
+---
+
+background-image: url(pics/rmarkdown.png)
+background-position: 95% 5%
+background-size: 100px
+
+# How: Using Python in R Markdown
+
+## What is R Markdown
+
+### Live demo
+May not be needed depending on the audience responses from earlier.
+
+
+Just watch for a while....
+
+---
+
+background-image: url(pics/rmarkdown.png)
+background-position: 95% 5%
+background-size: 100px
+
+# How: Using Python in R Markdown
+
+## What is R Markdown
+
+### Key points from the demo
+
+* mixes text and code  
+* human readable  
+* YAML header between the  \-\-\-
+* code chunk options control whether the code and its output end up in your 'knitted' document  
+* comments   
+  * in a code chunk the \# is still used for comments  
+  * in the text a comment is written like this  <!\-\- a comment \-\->
+  * but use Ctrl+Shift+C  
+* \# in the text indicate headings  
+
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Your own R markdown file
+
+File | New File | R Markdown
+
+--
+
+Delete everything except the YAML header the first code chunk
+
+--
+
+Add your name, and a title 
+
+You could copy and paste a title from [Classifiying_music.html](music_ml/Classifiying_music.html)
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Your own R markdown file
+
+Set some **default** code chunk options. I often use these:
+
+
+````
+```{r setup, include=FALSE}`r ''`
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE,
+                      message = FALSE)
+```
+````
+
+`echo = FALSE` means the code will not be included by default - this is normally what you want in a report.
+
+However, I used `echo = FALSE` in [Classifiying_music.Rmd](music_ml/Classifiying_music.Rmd) so you could see the code.
+
+Any output is included by default
+ 
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+Add a little introduction - again you could copy and paste.
+Save your file
+
+--
+
+Use Insert | R to add a code chunk
+
+
 
 ---
 # font colour test

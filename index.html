@@ -7,6 +7,7 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/rladies.css" rel="stylesheet" />
     <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -634,7 +635,7 @@ background-position: 95% 7%
 
 ## 🐍 Where is our NumPy array?
 Can Python can find it? 
-##🔍
+##🔎
 
 --
 
@@ -946,10 +947,215 @@ Than
 class: inverse, center, middle
 
 # How: Using Python in R Markdown
+
 ## 
 
 ---
-# Stuff to add!
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## The data
+
+We are going to work with some data derived from 9 pieces of music.
+
+4 are Piano only    
+4 are Violin only  
+1 is a sonata for Violin and Piano 
+
+5-second segments have been taken from each piece, processed into 5000 features and stored in an xlsx file.
+The maximum number of segments taken is 100.  
+We have 9 files  
+We will try to classify these segments.  
+
+The example and the original Python code to process the audio files and carry out the ML methods is by Michael Knight, University of Bristol
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## The data
+
+&lt;table class="table" style="font-size: 15px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Piece &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Number of segments &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 01 Ballade No. 1, Op. 23.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 No.2 in A major RV 31_ I. Preludio a Capriccio. Presto.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1-01 Sonata da chiesa a tre in F Major, Op. 1, No. 1_ I. Grave.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1-01 Sonata No. 1 In F Sharp Minor, Op. 11_ I. Introduzione. un Poco Adagio Allegro Vivace.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1-02 Sonata da chiesa a tre in F Major, Op. 1, No. 1_ II. Allegro.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 24 No.11 in D major RV 9_ II. Fantasia. Presto.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3-01 Sonata for Piano and Violin in F, K. 376_ I. Allegro.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 59 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 5-01 Beethoven_ Piano Sonata No. 14 in C-Sharp Minor, Op. 27 No. 2, 'Moonlight'_ I. Adagio sostenuto.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 74 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 9-05 Beethoven_ Piano Sonata No. 29 in B-Flat Major, Op. 106, 'Hammerklavier'_ I. Allegro.m4a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Let's get started...organising
+
+
+Start a new project&lt;sup&gt;1&lt;/sup&gt;  called "music_ml"
+
+File | New Project
+
+.footnote[
+[1] link to information about using projects in RStudio
+]
+
+--
+
+Make a folders in your music_ml project folder called
+
+"Piano"  
+"Violin"  
+"Violin_and_Piano"  
+
+
+--
+
+Download the files from [github](https://github.com/3mmaRand/useR2019_tutorial/music_ml)
+
+---
+
+background-image: url(pics/rmarkdown.png)
+background-position: 95% 5%
+background-size: 100px
+
+# How: Using Python in R Markdown
+
+## What is R Markdown
+
+### Live demo
+May not be needed depending on the audience responses from earlier.
+
+
+Just watch for a while....
+
+---
+
+background-image: url(pics/rmarkdown.png)
+background-position: 95% 5%
+background-size: 100px
+
+# How: Using Python in R Markdown
+
+## What is R Markdown
+
+### Key points from the demo
+
+* mixes text and code  
+* human readable  
+* YAML header between the  \-\-\-
+* code chunk options control whether the code and its output end up in your 'knitted' document  
+* comments   
+  * in a code chunk the \# is still used for comments  
+  * in the text a comment is written like this  &lt;!\-\- a comment \-\-&gt;
+  * but use Ctrl+Shift+C  
+* \# in the text indicate headings  
+
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Your own R markdown file
+
+File | New File | R Markdown
+
+--
+
+Delete everything except the YAML header the first code chunk
+
+--
+
+Add your name, and a title 
+
+You could copy and paste a title from [Classifiying_music.html](music_ml/Classifiying_music.html)
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Your own R markdown file
+
+Set some **default** code chunk options. I often use these:
+
+
+````
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE,
+                      message = FALSE)
+```
+````
+
+`echo = FALSE` means the code will not be included by default - this is normally what you want in a report.
+
+However, I used `echo = FALSE` in [Classifiying_music.Rmd](music_ml/Classifiying_music.Rmd) so you could see the code.
+
+Any output is included by default
+ 
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+Add a little introduction - again you could copy and paste.
+Save your file
+
+--
+
+Use Insert | R to add a code chunk
+
+
 
 ---
 # font colour test
