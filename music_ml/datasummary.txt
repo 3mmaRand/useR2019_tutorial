@@ -1,10 +1,11 @@
-"Var1","Freq"
-"01 Ballade No. 1, Op. 23.m4a",100
-"05 No.2 in A major RV 31_ I. Preludio a Capriccio. Presto.m4a",14
-"1-01 Sonata da chiesa a tre in F Major, Op. 1, No. 1_ I. Grave.m4a",15
-"1-01 Sonata No. 1 In F Sharp Minor, Op. 11_ I. Introduzione. un Poco Adagio Allegro Vivace.m4a",100
-"1-02 Sonata da chiesa a tre in F Major, Op. 1, No. 1_ II. Allegro.m4a",18
-"24 No.11 in D major RV 9_ II. Fantasia. Presto.m4a",16
-"3-01 Sonata for Piano and Violin in F, K. 376_ I. Allegro.m4a",59
-"5-01 Beethoven_ Piano Sonata No. 14 in C-Sharp Minor, Op. 27 No. 2, 'Moonlight'_ I. Adagio sostenuto.m4a",74
-"9-05 Beethoven_ Piano Sonata No. 29 in B-Flat Major, Op. 106, 'Hammerklavier'_ I. Allegro.m4a",100
+"Type","Var1","Freq","link"
+"Piano","01 Ballade No. 1, Op. 23.m4a",100,""
+"Piano","1-01 Sonata No. 1 In F Sharp Minor, Op. 11_ I. Introduzione. un Poco Adagio ,Allegro Vivace.m4a",100,""
+"Piano","5-01 Beethoven_ Piano Sonata No. 14 in C-Sharp Minor, Op. 27 No. 2, 'Moonlight'_ I. Adagio sostenuto.m4a",74,""
+"Piano","9-05 Beethoven_ Piano Sonata No. 29 in B-Flat Major, Op. 106, 'Hammerklavier'_ I. Allegro.m4a",100,""
+"Violin","05 No.2 in A major RV 31_ I. Preludio a Capriccio. Presto.m4a",14,""
+"Violin","1-01 Sonata da chiesa a tre in F Major, Op. 1, No. 1_ I. Grave.m4a",15,""
+"Violin","1-02 Sonata da chiesa a tre in F Major, Op. 1, No. 1_ II. Allegro.m4a",18,""
+"Violin","24 No.11 in D major RV 9_ II. Fantasia. Presto.m4a",16,""
+"Violin and Piano","3-01 Sonata for Piano and Violin in F, K. 376_ I. Allegro.m4a",59,"https://www.youtube.com/watch?v=iOq_lZWD8Lg"
+
