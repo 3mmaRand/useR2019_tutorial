@@ -774,7 +774,7 @@ background-position: 95% 7%
 
 ## 🐍 Where is our NumPy array?
 Can Python can find it? 
-##🔍
+##🔎
 
 --
 
@@ -1045,7 +1045,7 @@ For example, we found the size of `python_array` with:
 
 💙 In R we access and apply `np` attributes in a R like way: 
 
-`py$np$` _`.attribute_name(object_name)`_
+`py$np$` _`attribute_name(object_name)`_
 
 So to use the size attribute on `py$python_array`:
 
@@ -1419,6 +1419,20 @@ Use the green arrow on the right of the chunk to run it.
 
 ![python mods code chunk with the run code green arrow on the right indicated](pics/run_chunk.png)
 
+From now on 
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+
+means use the green button to run the chunk.
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
 If you get the error:
 
 This application has failed to start because it could not find or load the qt platform plugin "windows" in ""
@@ -1435,12 +1449,14 @@ background-position: 95% 7%
 
 You may want to add a header indicating this is Part 1 of the tutorial
 
+--
+
 A Python equivalent for R's `getwd()` is `getcwd()` from the `os` module.
 
 If you have successfuly imported the `os` module you can use it like this:
 
-(use the green arrow)
 
+.pull-left[
 ````
 ```{python}
 ########## PYTHON ##########
@@ -1448,8 +1464,14 @@ os.getcwd()
 ```
  'C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml'
 ````
+]
+.pull-right[
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+]
 
 --
+
 It prints out! with escaped 'windows-way' round slashes
 
 .footnote[
@@ -1477,6 +1499,8 @@ Here we access the `os` object's methods
 
 BUT in a R-like way using the `$` not a `.`
 
+.pull-left[
+
 ````
 ```{r}
 ##########   R    ##########
@@ -1485,7 +1509,11 @@ py$os$getcwd()
 ```
  [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
 ````
+]
+.pull-right[
 
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+]
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1497,6 +1525,12 @@ background-position: 95% 7%
 
 And we access R functions in Python chunks in a Python-like way
 
+Can you do that? Add Python chunk and use R's `getwd()`
+
+--
+
+.pull-left[
+
 ````
 ```{python}
 ########## PYTHON ##########
@@ -1504,13 +1538,19 @@ r.getwd()
 ```
  'C:/Users/Emma Rand/Desktop/useR2019/useR2019_tutorial/music_ml'
 ````
---
+]
+.pull-right[
 
-Though I'm not sure quite why you would
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+]
+
+
+That's right! Though I'm not sure quite why you would!
 
 --
 
 👀 You might have noticed that the output of Python chunks doesn't include the element numbering [1] characteristic of R output.
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1519,18 +1559,31 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-aaa
+We will read one of the spectrum files to learn how to access dataframes in both sessions.
+
+--
+
+You'll need to add the `readxl`&lt;sup&gt;1&lt;/sup&gt; package to your list of library statements in the R chunk called pkgs
+
 
 ````
-```{python}
-
-
-
+```{r pkgs}
+##########   R    ##########
+library(reticulate)
+library(readxl)
 ```
- [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
 ````
+.footnote[
+[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl
+]
 
-bbb
+--
+
+Make sure you run the line!
+
+
+
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1539,18 +1592,74 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-aaa
+Read in one of the files:
 
+.pull-left[
+````
+```{r}
+##########   R    ##########
+spectrum &lt;- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
+```
+````
+]
+.pull-right[
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+]
+
+--
+
+What are the dimensions of the dataframe:
+
+.pull-left[
+
+````
+```{r}
+##########   R    ##########
+dim(spectrum)
+```
+## [1]  100 5001
+````
+]
+.pull-right[
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+]
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+Can you use the 🐍 Pandas method `shape` in a new python chunk to achieve the same thing?
+
+--
+
+Hint: the dataframe is `r.spectrum`
+
+--
+
+.pull-left[
 ````
 ```{python}
-
-
-
+########## PYTHON ##########
+r.spectrum.shape
 ```
- [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+ ## (100, 5001)
 ````
 
-bbb
+]
+.pull-right[
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+]
+
+That's right!
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%

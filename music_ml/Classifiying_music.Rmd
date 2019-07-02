@@ -97,7 +97,7 @@ r.getwd()
 
 ## Ways to read in a file and calculate summary information
 
-Let's read one of the spectrum files in order to investigate passing dataframes between sessions. We can use the `readxl`<sup>1</sup> package. I have add that to the R chunk named `pkgs` 
+Let's read one of the spectrum files in order to investigate passing dataframes between sessions. We can use the `readxl`<sup>1</sup> package. I have added that to the R chunk named `pkgs` 
 
 ```{r}
 ##########   R    ##########
