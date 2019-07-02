@@ -1068,11 +1068,13 @@ background-position: 95% 7%
 
 You are going to write your own `reticulate` tutorial by combining your own notes and investigations with the code given in the slides.
 
+The tutorial is in two parts:
+* The first part of the tutorial aims to develop our baseline understanding of the link between the R and Python sessions and running code chunks interactively. We will pass simple objects between sessions more than you would normally just for demomstration purposes
+* The second part covers the importing, modelling and visualisation of processed audio data.
+
 The tutorial is "Classification of Audio segments by instrument: A Tutorial on using the R package reticulate to integrate R and Python."
 
-You are aiming for something like this:
-
-[Classifiying_music.html](music_ml/Classifiying_music.html)
+You are aiming for something like this: [Classifiying_music.html](music_ml/Classifiying_music.html)
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1091,8 +1093,8 @@ We are going to work with some data derived from 9 pieces of music. Three exampl
 
 The example and the original Python code to process the audio files and carry out the machine learning analysis methods are by Michael Knight, University of Bristol. 
  
-Each of the pieces of music has been segmented into 5-second segments each of which has 5000 features. Upto 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds. 
-  
+Each of the pieces of music has been segmented into 5-second segments each of which has 5000 features. The features represent the apodised power spectrum of a 5-second segment. 
+
 We will try to classify these segments.  
 
 
@@ -1104,6 +1106,8 @@ background-position: 95% 7%
 
 ## The data
 
+Upto 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
+
 ```{r echo=FALSE}
 datasummary <- read.table("music_ml/datasummary.txt", header = T, sep= ",")
 
@@ -1111,7 +1115,7 @@ tab <- knitr::kable(datasummary[1:3],
              format = "html",
              col.names = c("Instrument", "Piece", "Number of segments"),
              row.names = FALSE) 
-kableExtra::kable_styling(tab,font_size = 15)
+kableExtra::kable_styling(tab,font_size = 13)
 ```
 
 ---
@@ -1287,7 +1291,7 @@ Use Insert | R to add a code chunk
 library(reticulate)
 ```
 ````
-I will add a prominent comment to my code blocks indicate which programming langauge is used in that chunk.
+I will add a prominent comment to my code blocks indicating which programming langauge is used in that chunk.
 
 --
 
@@ -1331,13 +1335,11 @@ background-position: 95% 7%
 
 ## Run a Python chunk!
 
-To use that modules methods interactively in the R Markdown document, you need to run the code chunk.
+To use `os` methods interactively in later Python code chunks we need to run this code chunk.
 
 Use the green arrow on the right of the chunk to run it.
 
 ![python mods code chunk with the run code green arrow on the right indicated](pics/run_chunk.png)
-
-The green arrow will be a little red square while the chunk runs. 
 
 If you get the error:
 
@@ -1353,7 +1355,7 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-You may want to add a header indicating this is part one.
+You may want to add a header indicating this is Part 1 of the tutorial
 
 A Python equivalent for R's `getwd()` is `getcwd()` from the `os` module.
 
@@ -1376,8 +1378,161 @@ It prints out! with escaped 'windows-way' round slashes
 I found I needed `print(os.getcwd())` in previous versions of `reticulate`
 ]
 
----
 
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+We can also use the the `getcwd()` method from `os` in a R chunk.
+
+--
+
+Remember, to access Python objects (of any sort) in R we use `py$`
+
+Here we access the `os` object's methods 
+
+--
+
+BUT in a R-like way using the `$` not a `.`
+
+````
+```{r}`r ''`
+##########   R    ##########
+py$os$getcwd()
+
+```
+ [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+````
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+And we access R functions in Python chunks in a Python-like way
+
+````
+```{python}`r ''`
+########## PYTHON ##########
+r.getwd()
+```
+ 'C:/Users/Emma Rand/Desktop/useR2019/useR2019_tutorial/music_ml'
+````
+--
+
+Though I'm not sure quite why you would
+
+--
+
+`r emo::ji("look")` You might have noticed that the output of Python chunks doesn't include the element numbering [1] characteristic of R output.
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+aaa
+
+````
+```{python}`r ''`
+
+
+
+```
+ [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+````
+
+bbb
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+aaa
+
+````
+```{python}`r ''`
+
+
+
+```
+ [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+````
+
+bbb
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+aaa
+
+````
+```{python}`r ''`
+
+
+
+```
+ [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+````
+
+bbb
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+aaa
+
+````
+```{python}`r ''`
+
+
+
+```
+ [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+````
+
+bbb
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+aaa
+
+````
+```{python}`r ''`
+
+
+
+```
+ [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+````
+
+bbb
 ---
 # font colour test
 Roses are `r kableExtra::text_spec("red", color = "red")`,

@@ -11,15 +11,18 @@ You are going to write your own tutorial by combining your own notes and investi
 
 **The classification problem**
 
-We are going to work with some data derived from 9 pieces of music.
+We are going to work with some data derived from 9 pieces of music. Three examples are:
 
-The example and the original Python code to process the audio files and carry out the ML methods are by Michael Knight, University of Bristol.
+* [Chopin - Ballade No. 1 in G Minor](https://www.youtube.com/watch?v=Zj_psrTUW_w) 
+* [Corelli - Sonata da Chiesa, Op. 1 No. 1 in F major](https://www.youtube.com/watch?v=0fLbzkBRywU)
+* [Mozart - Sonata in F major for piano and violin K 376](https://www.youtube.com/watch?v=iOq_lZWD8Lg)
 
-Each of the pieces of music has been segmented into 5-second segments each of which has 5000 features. Upto 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
 
-We will try to classify these segments. 
+The example and the original Python code to process the audio files and carry out the machine learning analysis methods are by Michael Knight, University of Bristol. 
+ 
+Each of the pieces of music has been segmented into 5-second segments each of which has 5000 features. The features represent the apodised power spectrum of a 5-second segment. 
 
-(would be good to process the audio into segments but requires pydub to be installled and environments and packages less straightforward. )
+We will try to classify these segments.
 
 
 # Set up
@@ -37,6 +40,7 @@ knitr::opts_chunk$set(knitr::opts_chunk$set(echo = TRUE,
 ##########   R    ##########
 library(reticulate)
 library(ggplot2)
+library(readxl)
 
 ```
 
@@ -53,12 +57,13 @@ from sklearn.decomposition.pca import PCA
 # for plotting
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
 ```
 
 # Part 1: Building our understanding of the 'reticulation'
 
 This section is not required for the analysis of the data but is here to give us some practice in dealing with the linked sessions. 
+
+## Ways to find our working directory
 
 A Python equivalent for R's `getwd()` is from the `os` module.
 
@@ -73,71 +78,122 @@ Just like...
 ```{r}
 ##########   R    ##########
 getwd()
-
 ```
 
-Using the `print()` command also works
-```{python}
-########## PYTHON ##########
-print(os.getcwd())
-```
-However, notice the folder separators are the 'windows' way round and not escaped and not quoted
-
-**Note** I found print needed in earlier versions - not sure what update fixed, possibly using the dev version of reticulate. you often need to use print statements explicitly in python
-
-```{python}
-########## PYTHON ##########
-# what happens if we save the output of os.getcwd()
-# and print later in an r chunk
-
-# assign the a variable
-direct = os.getcwd()
-```
-
+We can also use the the getcwd() method from os in a R chunk.
+Remember to access Python objects of any sort we use `py$`
+Here we access the `os` object's methods BUT in a R-like way using the `$` not a `.`
 ```{r}
 ##########   R    ##########
-
-# access that variable
-py$direct
-
-```
-the folder separators are the windows way round and escaped
-
-
-```{r}
-##########   R    ##########
-# accessing the os method cwd 
-# you do get command completion
 py$os$getcwd()
-
 ```
-the folder separators are the windows way round and escaped
 
-What about running an r command from a python chunk?
+
+And access R functions in Python chunks in a Python-like way
 ```{python}
 ########## PYTHON ##########
 r.getwd()
-
 ```
 
+## Ways to read in a file and calculate summary information
 
-note:
-the output of r's getwd has the slashes 'corrected'
-This the case whether it is run from an r chunk or from a python chunk.
+Let's read one of the spectrum files in order to investigate passing dataframes between sessions. We can use the `readxl`<sup>1</sup> package. I have add that to the R chunk named `pkgs` 
 
-the output of python's os.getcwd has slashes the 'windows' way round
-unless you're using it in an r chunk as `py$os$getcwd` or accessing the assigned output of os.getcwd run from python chunk where they are the windows way round and escaped.
+```{r}
+##########   R    ##########
+spectrum <- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
+```
+
+How many segments (rows) are in this file?
+
+```{r}
+##########   R    ##########
+dim(spectrum)
+```
+ There are `r dim(spectrum)[1]` segments. There are `r dim(spectrum)[2]` columns which are the segment label in the first column and the `r dim(spectrum)[2] - 1` features. The features are named `r names(spectrum)[2]` to `r names(spectrum)[length(spectrum)]`
+
+What is the mean and standard deviation of the second feature?
+
+```{r}
+##########   R    ##########
+mean_2 <- mean(spectrum$`1`)
+sd_2 <- sd(spectrum$`1`)
+```
+The first feature has a $\bar{x} \pm s.d.$ of `r round(mean_2,2 )` $\pm$ `r round(sd_2, 2)`.
+
+Access the dataframe in Python and use python to calculate those same values
+
+Check it's type:
+```{python}
+########## PYTHON ##########
+type(r.spectrum)
+type(r.spectrum["1"])
+
+```
+The dimensions:
+```{python}
+########## PYTHON ##########
+r.spectrum.shape
+```
+The mean:
+```{python}
+########## PYTHON ##########
+r.spectrum["1"].mean()
+```
+The standard deviation:
+```{python}
+########## PYTHON ##########
+r.spectrum["1"].std()
+```
+
+To read the file in in Python you can use the `Pandas` method `pd.read_excel`
+```{python}
+########## PYTHON ##########
+python_spectrum = pd.read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
+```
+
+```{python}
+########## PYTHON ##########
+python_spectrum.shape
+```
+
+```{r}
+##########   R    ##########
+dim(py$python_spectrum)
+```
 
 
 # Part 2: Classification of audio data
 
-overview of the data import needed
+## The data
 
-description of the _segments.xlsx and _SegmentInfo.xlsx 
-can be downloaded directly
+Up to 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
+
+```{r echo=FALSE}
+datasummary <- read.table("datasummary.txt", header = T, sep= ",")
+
+tab <- knitr::kable(datasummary[1:3], 
+             format = "html",
+             col.names = c("Instrument", "Piece", "Number of segments"),
+             row.names = FALSE) 
+kableExtra::kable_styling(tab,font_size = 13)
+```
+
+There are two xlsx files for each piece.
+
+* xxxxxx_segments.xlsx  
+  has the segments in rows and the features in columns
+* xxxxxx_SegmentInfo.xlsx  
+  has the metadata for each segment: the name of the piece, the instrument label on the piece, the start and end time of the segment.  
+
+There are `r sum(datasummary$Freq)` segments in total of which `r sum(datasummary$Freq[datasummary$Type == "Piano"])` are from piano pieces and `r sum(datasummary$Freq[datasummary$Type == "Violin"])` are from violin pieces. The remaining `r sum(datasummary$Freq[datasummary$Type == "Violin and Piano"])` pieces are from Mozart's  Sonata piano and violin.
 
 
 ## Data import
+
+This will be carried out with Python. The separate _segments.xlsx files are read in to a single Pandas dataframe, `df_seg` This requires a nested for loop to iterate through the directories and through the files in the directories. The information about the segments in _SegmentInfo.xlsx files are similarly read into a Pandas dataframe, `df_info` and a column is added to capture the instrument labeling.
+
+
 
 ```{python}
 ########## PYTHON ##########
@@ -166,8 +222,6 @@ for d in dirs_to_use:
 
 
 ```
-
-## Some descriptive information
 
 
 ## Analysis
@@ -229,8 +283,8 @@ Biplot
 # pca 1 is in new_data[ ,1]
 # pca 2 is in new_data[ ,2]
 
-df <- data.frame(pca1 = py$new_data[ ,1], 
-                 pca2 = py$new_data[ ,2], 
+df <- data.frame(pca1 = py$new_data[ ,1],
+                 pca2 = py$new_data[ ,2],
                  instrument = py$df_info$Instrument)
 
 ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
@@ -256,6 +310,7 @@ plt.show()
 
 ```
 
- 
 
 
+[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1.
+  https://CRAN.R-project.org/package=readxl
