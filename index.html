@@ -1407,11 +1407,13 @@ Use Insert | R to add a code chunk
 ##########   R    ##########
 library(reticulate)
 library(readxl)
-library(ggplot)
+library(ggplot2)
 ```
 ````
+.footnote[
 [1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl  
 [2] Wickham, H. (2016) ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York https://ggplot2.tidyverse.org
+]
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1497,7 +1499,7 @@ You may want to add a header indicating this is Part 1 of the tutorial
 
 A Python equivalent for R's `getwd()` is `getcwd()` from the `os` module.
 
-If you have successfuly imported the `os` module you can use it like this:
+If you have successfully imported the `os` module you can use it like this:
 
 
 .pull-left[
@@ -1516,7 +1518,10 @@ os.getcwd()
 
 --
 
-It prints out! with escaped 'windows-way' round slashes
+It prints out! 
+
+On a windows machine the 'windows-way' round slashes are escaped  
+On a mac the path will be given 'correctly'
 
 .footnote[
 I found I needed `print(os.getcwd())` in previous versions of `reticulate`
