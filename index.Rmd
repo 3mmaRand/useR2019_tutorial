@@ -555,13 +555,44 @@ In R you might do this as:
 r_array <- c(4, 5, 1, 6, 8)
 ```
 
+--
+
 In Python you might use a list<sup>1</sup>
 
-some stuff to complete including how lists differ from vectors/arrays esp
-2 * [1,2,3] is [1,2,3,1,2,3] not [2,4,6] but fairly brief
+A list is created like this:
+```{python eval=FALSE}
+python_list = [4, 5, 1, 6, 8]
+```
 
 .footnote[
 [1] Python doesn't have a native array data structure but it has the list.   
+]
+
+--
+Python uses `=` for assignment
+
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+
+# Python fundamentals
+
+Python lists differ from R vectors and arrays. 
+
+For example:
+
+```{python eval=FALSE}
+python_list *2
+[4, 5, 1, 6, 8, 4, 5, 1, 6, 8]
+```
+
+--
+
+Instead you might use the [NumPy package](http://www.numpy.org/)<sup>1</sup>. NumPy arrays do behave like R vectors/arrays.
+
+.footnote[
+[1] NumPy is the fundamental package for scientific computing with Python.
 ]
 
 ---
@@ -571,7 +602,6 @@ background-position: 95% 7%
 
 # Python fundamentals
 
-Instead you might use the [NumPy package](http://www.numpy.org/)<sup>1</sup>. 
 
 You need to `import` NumPy, then use it's array() function.
 
@@ -581,21 +611,26 @@ import numpy as np
 python_array = np.array([4, 5, 1, 6, 8])
 ```
 
-.footnote[
-[1] NumPy is the fundamental package for scientific computing with Python.
+--
+`import` in Python is the equivalent of `library()` in R
 
-]
+
+......add import as and from
+
 ---
 background-image: url(pics/cute-snake.jpg)
 background-position: 95% 7%
 
 # Python fundamentals
 
-to include:
-assignment - uses equal  
-import vs library  
+  
+briefly
 attributes, methods, functions  
-print()  
+
+some are
+function(object)
+
+mostly object.attribute or object.method()
 
 ---
 
@@ -1283,23 +1318,40 @@ background-position: 95% 7%
 
 There's one package you will definitely need: `reticulate`
 
+We also also use `readxl`<sup>1</sup> and `ggplot2`<sup>2</sup> so let's add those too:
+
 Use Insert | R to add a code chunk
 
 ````
 ```{r pkgs}`r ''`
 ##########   R    ##########
 library(reticulate)
+library(readxl)
+library(ggplot)
 ```
 ````
-I will add a prominent comment to my code blocks indicating which programming langauge is used in that chunk.
+[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl  
+[2] Wickham, H. (2016) ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York https://ggplot2.tidyverse.org
 
---
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
 
-You may also want to add some text such as "R packages needed"
+# How: Using Python in R Markdown
 
---
+## Run a R chunk!
 
-We can add any other R packages we need later
+To run R commands interactively in a R Markdown document we need to run this code chunk.
+
+Use the green arrow on the right of the chunk to run it.
+
+![r pkgs code chunk with the run code green arrow on the right indicated](pics/run_chunk_r.png)
+
+From now on 
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+
+means use the green button to run the chunk.
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1316,36 +1368,26 @@ In Part 1, we will use the os module
 
 Use Insert | Python to add a code chunk
 
+.pull-left[
+
 ````
 ```{python mods}`r ''`
 ########## PYTHON ##########
 import os
 ```
 ````
---
 
-Again, we will add any other Python modules we need later.
-
-
----
-background-image: url(pics/reticulated_python.png)
-background-position: 95% 7%
-
-# How: Using Python in R Markdown
-
-## Run a Python chunk!
-
-To use `os` methods interactively in later Python code chunks we need to run this code chunk.
-
-Use the green arrow on the right of the chunk to run it.
-
-![python mods code chunk with the run code green arrow on the right indicated](pics/run_chunk.png)
-
-From now on 
+]
+.pull-right[
 
 `r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
 
-means use the green button to run the chunk.
+To use `os` methods interactively in later Python code chunks remember to run this code chunk.
+
+--
+
+We will add any other Python modules we need later.
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1481,40 +1523,7 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-We will read one of the spectrum files to learn how to access dataframes in both sessions.
-
---
-
-You'll need to add the `readxl`<sup>1</sup> package to your list of library statements in the R chunk called pkgs
-
-
-````
-```{r pkgs}`r ''`
-##########   R    ##########
-library(reticulate)
-library(readxl)
-```
-````
-.footnote[
-[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl
-]
-
---
-
-Make sure you run the line!
-
-
-
-
----
-background-image: url(pics/reticulated_python.png)
-background-position: 95% 7%
-
-# How: Using Python in R Markdown
-
-## Part 1 Building our understanding
-
-Read in one of the files:
+We will read one of the spectrum files to learn how to access dataframes in both sessions using `read_excel()` from `readxl`:
 
 .pull-left[
 ````
@@ -1523,6 +1532,7 @@ Read in one of the files:
 spectrum <- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ```
 ````
+
 ]
 .pull-right[
 
@@ -1531,20 +1541,19 @@ spectrum <- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 
 --
 
-What are the dimensions of the dataframe:
+and check the dimensions of the dataframe:
+
 
 .pull-left[
-
 ````
 ```{r}`r ''`
 ##########   R    ##########
 dim(spectrum)
 ```
-## [1]  100 5001
+[1]  100 5001
 ````
 ]
 .pull-right[
-
 `r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
 ]
 
@@ -1561,7 +1570,7 @@ Can you use the `r emo::ji("snake")` Pandas method `shape` in a new python chunk
 
 --
 
-Hint: the dataframe is `r.spectrum`
+   Hint: the dataframe is `r.spectrum`
 
 --
 
@@ -1571,7 +1580,7 @@ Hint: the dataframe is `r.spectrum`
 ########## PYTHON ##########
 r.spectrum.shape
 ```
- ## (100, 5001)
+(100, 5001)
 ````
 
 ]
@@ -1590,18 +1599,36 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-aaa
+* 100 rows _i.e._, segments. 
+
+* 5001 columns. The first column, "...1" is the segment label; the others are the 5000 features. They have the names "0" to "4999"
+
+Using R to find the mean and s.d. of the second feature<sup>1</sup>
+
+.footnote[
+[1] There's nothing specials about feature 2. I'm avoiding the first feature simply because it is atypical
+]
+
+.pull-left[
 
 ````
-```{python}`r ''`
-
-
+```{r}`r ''`
+##########   R    ##########
+mean(spectrum$`1`)
+sd(spectrum$`1`)
 
 ```
- [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+[1] 4422.34
+[1] 5711.785
 ````
 
-bbb
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1610,18 +1637,30 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-aaa
+Can you use Python to achieve the same:
+
+--
+
+.pull-left[
 
 ````
 ```{python}`r ''`
-
-
-
+########## PYTHON ##########
+r.spectrum["1"].mean()
+r.spectrum["1"].std()
 ```
- [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
+4422.34
+5711.784974979717
 ````
 
-bbb
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+Well done!
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1630,38 +1669,342 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-aaa
+### Knit your Rmd
 
+Now is good time to hit knit!
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+Now read in the same file using Python.
+
+--
+
+You'll need to first add the `Pandas`<sup>1</sup> module to your list of import statements in the Python chunk called mods
+
+--
+
+.pull-left[
+````
+```{python mods}`r ''`
+########## PYTHON ##########
+import os
+import pandas as pd
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+.footnote[
+[1] McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56 
+]
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+Read in the file:
+
+.pull-left[
 ````
 ```{python}`r ''`
-
-
-
+########## PYTHON ##########
+python_spectrum = pd.read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ```
- [1] "C:\\Users\\Emma Rand\\Desktop\\useR2019\\useR2019_tutorial\\music_ml"
 ````
 
-bbb
----
-# font colour test
-Roses are `r kableExtra::text_spec("red", color = "red")`,
+]
+.pull-right[
 
-violets are `r kableExtra::text_spec("blue", background = "lightblue")`
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
 
-<style>
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
-</style>
-<div class = "blue">
-
-- This is my first conclusion  
-- This is my second conclusion  
-
-</div>
-
+`r kableExtra::text_spec("Extra exercises", background = "darkturquoise", color = "black")`
 
 ---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
 
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+### Data import
+This will be carried out with Python. 
+
+**Overivew**  
+The nine "_segments.xlsx" files are read in to a single Pandas dataframe, `df_seg`.
+
+This requires nested `for` loops to iterate through the directories and through the files in the directories. 
+
+The information about the segments in "_SegmentInfo.xlsx" files are similarly read into a Pandas dataframe, `df_info` and a column is added to capture the instrument labeling.
+
+You should be able to use and run the Python code without understanding how it works.
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+### Data import
+Copy the importing code from: [Classifiying_music.html](music_ml/Classifiying_music.html)
+
+Insert a new Python chunk and paste the code in
+
+.pull-left[
+````
+```{python}`r ''`
+########## PYTHON ##########
+dirs_to_use = ["Violin", "Piano", "Violin_and_Piano"]
+
+df_seg = None
+df_info = None
+for d in dirs_to_use:
+    for f in os.listdir(d):
+    ... ... ...
+    ... ... ... etc
+    
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+### Knit your Rmd
+
+Now is good time to hit knit!
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+### Principal Component Analysis (PCA) in Python
+
+You'll need to first PCA from the `scikit-learn`<sup>1</sup> module to your list of import statements in the Python chunk called mods
+
+.footnote[
+[1] Pedregosa et al. (2011) Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
+]
+--
+
+.pull-left[
+````
+```{python mods}`r ''`
+########## PYTHON ##########
+import os
+import pandas as pd
+
+# for PCA
+from sklearn.decomposition.pca import PCA
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2: PCA in Python
+The PCA is carried out with
+
+.pull-left[
+````
+```{python}`r ''`
+########## PYTHON ##########
+# Apply PCA
+mdl = PCA()
+new_data = mdl.fit_transform(df_seg)
+    
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+`new_data` contains the Principle Component scores
+
+---
+
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2: Visualising the `r emo::ji("snake")` PCA
+
+First using Python.
+
+You'll need to first PCA from the `matplotlib.pyplot`<sup>1</sup> module to your list of import statements in the Python chunk called mods
+
+.footnote[
+[1] Pedregosa et al. (2011) Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
+]
+--
+
+.pull-left[
+````
+```{python mods}`r ''`
+########## PYTHON ##########
+import os
+import pandas as pd
+
+# for PCA
+from sklearn.decomposition.pca import PCA
+# for plotting
+import matplotlib.pyplot as plt
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2: Visualising the `r emo::ji("snake")` PCA
+
+First using Python
+
+Copy the Biplot code from: [Classifiying_music.html](music_ml/Classifiying_music.html)
+
+Insert a new Python chunk and paste the code in
+.pull-left[
+````
+```{python}`r ''`
+########## PYTHON ##########
+p = df_info["Instrument"] == "Piano"
+v = df_info["Instrument"] == "Violin"
+pv = df_info["Instrument"] == "Violin_and_Piano"
+plt.figure()
+... ... ...
+... ... ... etc
+    
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+You should see the Python plot in your file!
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2: Visualising the `r emo::ji("snake")` PCA
+
+### Knit your Rmd
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2: Visualising the `r emo::ji("snake")` PCA
+
+Now using R!
+
+Insert a new R chunk: 
+.pull-left[
+````
+```{r}`r ''`
+##########   R    ##########
+df <- data.frame(pca1 = py$new_data[ ,1],
+                 pca2 = py$new_data[ ,2],
+                 instrument = py$df_info$Instrument)
+
+ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
+  geom_point()
+    
+```
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+]
+
+You should see the R plot in your file!
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2: Visualising the `r emo::ji("snake")` PCA
+
+### Knit your Rmd
+
+Epic! Python and R plots in one doc!
+
+---
 # References and credits
+Incomplete!!
+
+SciPy (pronounced “Sigh Pie”) is a Python-based ecosystem of open-source software for mathematics, science, and engineering. In particular, these are some of the core packages:
+
+NumPy: Base N-dimensional array package  
+SciPy library: Fundamental library for scientific computing  
+Matplotlib: Comprehensive 2D Plotting  
+IPython: Enhanced Interactive Console  
+Sympy: Symbolic mathematics  
+pandas: Data structures & analysis  
+
+Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001-, http://www.scipy.org/ [Online; accessed 2019-07-03].
 
 ---
 

@@ -56,7 +56,7 @@ from sklearn.decomposition.pca import PCA
 
 # for plotting
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# from mpl_toolkits.mplot3d import Axes3D
 ```
 
 # Part 1: Building our understanding of the 'reticulation'
@@ -119,7 +119,7 @@ What is the mean and standard deviation of the second feature?
 mean_2 <- mean(spectrum$`1`)
 sd_2 <- sd(spectrum$`1`)
 ```
-The first feature has a $\bar{x} \pm s.d.$ of `r round(mean_2,2 )` $\pm$ `r round(sd_2, 2)`.
+The second feature has a $\bar{x} \pm s.d.$ of `r round(mean_2,2 )` $\pm$ `r round(sd_2, 2)`.
 
 Access the dataframe in Python and use python to calculate those same values
 
@@ -135,14 +135,10 @@ The dimensions:
 ########## PYTHON ##########
 r.spectrum.shape
 ```
-The mean:
+The mean and standard deviation:
 ```{python}
 ########## PYTHON ##########
 r.spectrum["1"].mean()
-```
-The standard deviation:
-```{python}
-########## PYTHON ##########
 r.spectrum["1"].std()
 ```
 
@@ -191,7 +187,7 @@ There are `r sum(datasummary$Freq)` segments in total of which `r sum(datasummar
 
 ## Data import
 
-This will be carried out with Python. The separate _segments.xlsx files are read in to a single Pandas dataframe, `df_seg` This requires a nested for loop to iterate through the directories and through the files in the directories. The information about the segments in _SegmentInfo.xlsx files are similarly read into a Pandas dataframe, `df_info` and a column is added to capture the instrument labeling.
+This will be carried out with Python. The nine "_segments.xlsx" files are read in to a single Pandas dataframe, `df_seg`. This requires nested for loops to iterate through the directories and through the files in the directories. The information about the segments in "_SegmentInfo.xlsx" files are similarly read into a Pandas dataframe, `df_info` and a column is added to capture the instrument labeling.
 
 
 
@@ -238,19 +234,19 @@ new_data = mdl.fit_transform(df_seg)
 access info from the new_data object
 
 
-### Visualising the ` r emo::ji("snake")` PCA
+### Visualising the `r emo::ji("snake")` PCA
 
 #### First using Python
 
 
-Scree plot
-```{python}
-########## PYTHON ##########
-plt.figure()
-plt.plot(mdl.explained_variance_)
-plt.show()
+<!-- Scree plot -->
+<!-- ```{python} -->
+<!-- ########## PYTHON ########## -->
+<!-- plt.figure() -->
+<!-- plt.plot(mdl.explained_variance_) -->
+<!-- plt.show() -->
 
-```
+<!-- ``` -->
 
 
 Biplot
@@ -269,20 +265,15 @@ plt.show()
 ```
 
 
-
-
 #### Now using R
 
-screeplot
+<!-- screeplot -->
 
 
 Biplot
 
 ```{r}
 ##########   R    ##########
-# pca 1 is in new_data[ ,1]
-# pca 2 is in new_data[ ,2]
-
 df <- data.frame(pca1 = py$new_data[ ,1],
                  pca2 = py$new_data[ ,2],
                  instrument = py$df_info$Instrument)
@@ -291,26 +282,24 @@ ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
   geom_point()
 ```
 
+<!-- #### 3D plot in Python -->
+
+<!-- Triplot of Python's PCA1 v PCA2 using Python -->
+<!-- ```{python} -->
+<!-- ########## PYTHON ########## -->
+<!-- fig = plt.figure() -->
+<!-- ax = Axes3D(fig) -->
+<!-- ax.scatter(new_data[p, 0], new_data[p, 1], new_data[p, 2], label = "Piano") -->
+<!-- ax.scatter(new_data[v, 0], new_data[v, 1], new_data[v, 2], label = "Violin") -->
+<!-- ax.scatter(new_data[pv, 0], new_data[pv, 1], new_data[pv, 2], label = "Violin_and_Piano") -->
+<!-- plt.legend() -->
+<!-- plt.show() -->
+
+<!-- ``` -->
 
 
 
+<!-- [1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. -->
+<!--   https://CRAN.R-project.org/package=readxl -->
 
-#### 3D plot in Python
-
-Triplot of Python's PCA1 v PCA2 using Python
-```{python}
-########## PYTHON ##########
-fig = plt.figure()
-ax = Axes3D(fig)
-ax.scatter(new_data[p, 0], new_data[p, 1], new_data[p, 2], label = "Piano")
-ax.scatter(new_data[v, 0], new_data[v, 1], new_data[v, 2], label = "Violin")
-ax.scatter(new_data[pv, 0], new_data[pv, 1], new_data[pv, 2], label = "Violin_and_Piano")
-plt.legend()
-plt.show()
-
-```
-
-
-
-[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1.
-  https://CRAN.R-project.org/package=readxl
+refs need adding
