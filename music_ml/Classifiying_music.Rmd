@@ -128,7 +128,6 @@ Check it's type:
 ########## PYTHON ##########
 type(r.spectrum)
 type(r.spectrum["1"])
-
 ```
 The dimensions:
 ```{python}
@@ -229,6 +228,7 @@ for d in dirs_to_use:
 # Apply PCA
 mdl = PCA()
 new_data = mdl.fit_transform(df_seg)
+type(new_data)
 ```
 
 access info from the new_data object

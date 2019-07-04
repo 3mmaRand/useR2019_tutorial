@@ -59,9 +59,17 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 
 .pull-right[
 
-Lecturer (Assistant Professor) University of York, UK
+Lecturer (Assistant Professor), Department of Biology University of York, UK
 
-some other stuff
+I'm a biologist by training. 
+
+Long time R user, relatively new to Python. 
+<br>
+<br>
+<br>
+<br>
+`r emo::ji("arrow_left")` York, twinned with Dijon.
+
 .footnote[
 Materials:   https://github.com/3mmaRand/useR2019_tutorial
 ]
@@ -133,7 +141,7 @@ Leila is an American pursuing her PhD in Bioinformatics here in Toulouse, affili
 
 She is very kindly giving her time here today to help out and has already contributed to the session by going through the material and giving some feedback.
 
-Any errors that remain are mine.
+But any errors that remain are mine!
 
 ]
 
@@ -141,13 +149,38 @@ Any errors that remain are mine.
 .footnote[
 Materials:   https://github.com/3mmaRand/useR2019_tutorial
 ]
+
 ---
+
 # Thank yous! 
-## Everyone here for coming!
+My colleagues at the University of York allowed me to practice on them:  
+James Chong  
+Bryden Fields  
+Martina Stoycheva  
+Jack Law  
+Oliver Noble   
+Rebecca Hall  
+Evie Farnham  
+Mike Gray  
 
 .footnote[
 Materials:   https://github.com/3mmaRand/useR2019_tutorial
 ]
+--
+
+And finally...
+
+--
+
+
+## Everyone here for coming! `r emo::ji("smile")`
+
+---
+# Who are you?
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHXFrhsSfUXEyIhHAnP40fH5a66eRZm3YZaEcNFT-F08CKjA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+
 ---
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg)
 background-position: 95% 95%
@@ -166,13 +199,13 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 
 but it's written in Python  
 
-`r emo::ji("grimace")`
+`r emo::ji("grimace")`  
 
 --
 
-You're collaborating with some great people
+You're collaborating with some great people  
 
-`r emo::ji("grin")`
+`r emo::ji("grin")`  
 
 --
 
@@ -180,7 +213,7 @@ but they mainly use Python!
 
 `r emo::ji("grimace")`
 
-You want to collaborate more easily and seamlessly! 
+You want to use existing/available solutions and collaborate more easily.
 
 ---
 # Why `reticulate`?
@@ -306,9 +339,9 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 
 # Why `reticulate`?
 
-Thankfully, there's Reticulate
+Thankfully, there's `Reticulate`
 
-JJ Allaire, Kevin Ushey and Yuan Tang (2018). reticulate: Interface to 'Python'. R package version  1.10. https://CRAN.R-project.org/package=reticulate  
+<small>JJ Allaire, Kevin Ushey and Yuan Tang (2018). reticulate: Interface to 'Python'. R package version  1.10. https://CRAN.R-project.org/package=reticulate </small> 
 
 &nbsp;  
 
@@ -323,28 +356,48 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 
 class: inverse, center, middle
 
-# Overview
+# Tutorial Overview
 
 ---
 
-# Overview
+# Tutorial Overview `r emo::ji("world_map")`
 
-* Very brief background to R and Python  
-* Broad overview of [Reticulate](https://rstudio.github.io/reticulate)  
-  Why use it, what are its key features, how can it be used, set up recommendations  
-* Aside: A little basic Python  
-  Assignment, data types and structures, importing modules, methods, some differences an R user will notice  
-* Examples of using `reticulate`  
-  * Interactively using `repl_python()`  
-  * Sourcing  Python scripts
-  * Importing Python modules 
-  * Complete integration in R markdown  
+* Context: Very brief background to R `r emo::ji("blue heart")`and Python `r emo::ji("snake")`  
+
+* Rationale: why use [Reticulate](https://rstudio.github.io/reticulate), what are its key features, how can it be used and set up  
+
+* Background: A little Python. Only what you need to start making sense of calling Python from R  
+
+* Using Python interactively with `repl_python()`  
+
+* Integration in R markdown `r emo::ji("fountain_pen")`:  Writing your own `reticulate` tutorial
+  * Part 1: Building your understanding
+  * Part 2: Classifying audio segments  
+
+What the tutorial won't be: a thorough introduction to Python, R Markdown or machine learning.
 
 .footnote[
 Materials:   https://github.com/3mmaRand/useR2019_tutorial
 ]
 ---
 
+
+# Aims
+This tutorial was designed for:  
+* beginner to intermediate R users  
+* those with little to no experience of Python  
+* those who may not have experience of Rmarkdown  
+
+--
+
+By the end of the tutorial you should be able to:
+* pass objects between simultaneous R and Python sessions  
+* use Python methods in R code
+* incorporate Python snippets in to your R workflow even if you don't understand in detail how they work
+
+As long as you know what the Python methods and code snippets are is for, and have a good-enough understanding of their inputs and outputs, then you can use `reticulate`
+
+---
 # Background
 
 ```{r table, echo=FALSE, paged.print=TRUE}
@@ -411,9 +464,6 @@ Exciting implementations
 
 2. Translation between R objects and Python objects  
  
-   Can be automatic or explicit  
-   RStudio 1.2
-
 3. Flexible binding to different Python environments  
 
 

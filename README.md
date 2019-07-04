@@ -12,11 +12,11 @@ Please also install the `reticulate` package and I recommend the development ver
 
 `install.packages("devtools")`
 
-You should be then able to install `reticulate' with:
+You should be then able to install `reticulate` with:
 
 `devtools::install_github("rstudio/reticulate")`
 
-You can read more about 'devtools' here: https://www.r-project.org/nosvn/pandoc/devtools.html
+You can read more about `devtools` here: https://www.r-project.org/nosvn/pandoc/devtools.html
 
 We will also use `readxl` and `ggplot2`. Please also install them from CRAN.
 
@@ -29,8 +29,15 @@ Extract the files.
 #### Information
 Please make a note of where your RStudio and Anaconda3 plugins are located. For example, on my windows machine they are:
 
-`C:\Program Files\RStudio\bin\plugins`
+`C:\Program Files\RStudio\bin\plugins`  
 `C:\ProgramData\Anaconda3\Library\plugins`
+
+#### Tester
+This file should help you discover if you are set up for the tutorial.
+
+Start RStudio, open tester.Rmd and hit the knit button. 
+
+If all goes well, you should get this output: [tester.html](tester.html)
 
 #### Help!
 If you have any problems with the pre-tutorial instructions please get in touch with me on emma.rand@york.ac.uk and I'll do my best to help.
