@@ -37,7 +37,7 @@ This file should help you discover if you are set up for the tutorial.
 
 Start RStudio, open tester.Rmd and hit the knit button. 
 
-If all goes well, you should get this output: [tester.html](tester.html)
+If all goes well, you should get this output: [tester.html](https://3mmarand.github.io/useR2019_tutorial/tester.html)
 
 #### Error?
 
