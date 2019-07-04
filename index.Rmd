@@ -448,12 +448,6 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 [2] Stack Overflow Developers' Survey, NanoMathius, 2018  
 ]
 
----
-
-# Reticulate
-
-
-Exciting implementations
 
 ---
 # Reticulate
@@ -480,9 +474,11 @@ Exciting implementations
 
 4. In R Markdown documents  
 
-Methods 2, 3 and 4 are likely to be the ones you would use in a data analysis project. 
+--
 
-However, we will start with `repl_python()` to build our understanding.
+We will start with `repl_python()` to build our understanding.
+
+Then use R Markdown.
 
 ---
 # Reticulate
@@ -544,14 +540,15 @@ Google is not always your friend!
 
 --
 
-* Probably / possibly.....to set to the QT_PLUGIN_PATH environment variable.
+* Probably / possibly.....to set to the QT_PLUGIN_PATH environment variable.  
 
-In windows: Control Panel -> System and Security -> System then
+  In windows: Control Panel -> System and Security -> System then
 
-Advanced System settings -> Environment variables
+  Advanced System settings -> Environment variables
 
-I have set mine to 
-C:\Program Files\RStudio\bin\plugins; C:\ProgramData\Anaconda3\Library\plugins
+  I have set mine to:
+  
+  `C:\Program Files\RStudio\bin\plugins; C:\ProgramData\Anaconda3\Library\plugins`
 
 
 .footnote[
@@ -590,7 +587,7 @@ If you can describe and resolve in a better but still minimal way, please get in
 
 class: inverse, center, middle
 
-# A little Python (needs finishing)
+# A little Python
 
 ---
 background-image: url(pics/cute-snake.jpg)
@@ -607,42 +604,13 @@ r_array <- c(4, 5, 1, 6, 8)
 
 --
 
-In Python you might use a list<sup>1</sup>
-
-A list is created like this:
-```{python eval=FALSE}
-python_list = [4, 5, 1, 6, 8]
-```
+In Python you might<sup>1</sup> use the [NumPy package](http://www.numpy.org/)<sup>2</sup>. NumPy arrays behave like R vectors/arrays.
 
 .footnote[
-[1] Python doesn't have a native array data structure but it has the list.   
-]
-
---
-Python uses `=` for assignment
-
----
-background-image: url(pics/cute-snake.jpg)
-background-position: 95% 7%
-
-
-# Python fundamentals
-
-Python lists differ from R vectors and arrays. 
-
-For example:
-
-```{python eval=FALSE}
-python_list *2
-[4, 5, 1, 6, 8, 4, 5, 1, 6, 8]
-```
-
---
-
-Instead you might use the [NumPy package](http://www.numpy.org/)<sup>1</sup>. NumPy arrays do behave like R vectors/arrays.
-
-.footnote[
-[1] NumPy is the fundamental package for scientific computing with Python.
+[1]Python doesn't have a native array data structure but it has the list.  
+[2] NumPy is the fundamental package for scientific computing with Python. It is part of the 
+SciPy ecosystem.  
+Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001-, http://www.scipy.org/.
 ]
 
 ---
@@ -652,20 +620,31 @@ background-position: 95% 7%
 
 # Python fundamentals
 
+To make a NumPy array we need to first`import` NumPy, then use it's `array()` function. 
 
-You need to `import` NumPy, then use it's array() function.
+This is going to introduce us to several Pythonesque things.
 
-The Python code looks like this:
+--
+
+The Python code looks like this (don't type it):
 ```{python eval=FALSE}
 import numpy as np
 python_array = np.array([4, 5, 1, 6, 8])
 ```
 
 --
+
+Python uses `=` for assignment
+
+--
+
 `import` in Python is the equivalent of `library()` in R
 
+--
 
-......add import as and from
+To use methods in NumPy (and other modules) we need to use `numpy.method_name()`.
+
+To make this quicker to type it is common to use an alias. That's the `as np` bit
 
 ---
 background-image: url(pics/cute-snake.jpg)
@@ -673,20 +652,41 @@ background-position: 95% 7%
 
 # Python fundamentals
 
+```{python eval=FALSE}
+import numpy as np
+python_array = np.array([4, 5, 1, 6, 8])
+```
+
+The second line of code creates the numpy array (from a list).
+
+--
+
+To do things with `python_array` we might use a built-in function. These are used in a way that will be familar to you, for example:
+
+```{python eval=FALSE}
+type(python_array)
+<class 'numpy.ndarray'>
+```
   
-briefly
-attributes, methods, functions  
+--
 
-some are
-function(object)
+Python also has methods. Methods are called on objects with the dot notation.  
+For example:
 
-mostly object.attribute or object.method()
+```{python eval=FALSE}
+python_array.max()
+8
+```
+---
 
+class: center, middle
+
+# Enough!<br> <br>Let me code!
 ---
 
 class: inverse, center, middle
 
-# How: Using Python in the console
+# Using Python in the console
 ## `reticulate::repl_python()`
 ---
 
@@ -696,7 +696,9 @@ class: inverse, center, middle
 
 We are going to use Python interactively in the console.  
 
-We will  
+We will 
+* Create a new project  
+* Check our Python environment  
 * Start a Python session from our R session  
 * Create a NumPy array  
 * Use the NumPy array  
@@ -704,7 +706,35 @@ We will
   * calculate its mean (a method)  
 * End the Python session  
 * Access the NumPy array from our R session  
-    
+
+
+---
+# Using Python in the console
+
+## Organising ourselves
+
+.pull-left[
+We are going to work in a project<sup>1</sup>.
+
+File | New Project | Existing Directory
+
+Choose Browse
+
+And navigate to the "music_ml" folder and Open
+]
+
+.pull-right[
+![rstudio's Create Project from Existing Directory window](pics/new_project.png)
+
+]
+
+Choose Create Project
+
+.footnote[
+[1] New to projects? [RStudio: Using Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+]
+
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -747,19 +777,28 @@ background-position: 95% 7%
 
 # Using Python in the console
 
-## `r emo::ji("blue heart")` Start a Python session
+## `r emo::ji("blue heart")` Prepare to start a Python session
 
 Load the reticulate package
-```{r}
-library(reticulate)
+```{r eval=FALSE}
+> library(reticulate)
 ```
---
 
-And use the function `repl_python()`:
+For this section on using `repl_python()` I will show the prompt in the code.
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## `r emo::ji("blue heart")` Start a Python session
+
+With `repl_python()`:
 
 ```{r eval=FALSE}
 >  repl_python() 
-Python 3.6.5 (C:\Apps\ANACON~1\python.exe)
+Python 3.6.5 (C:\\PROGRA~3\\ANACON~1\\python.exe)
 Reticulate 1.10 REPL -- A Python interpreter in R.
 >>>  
 ```
@@ -774,7 +813,7 @@ background-position: 95% 7%
 
 ```{r eval=FALSE}
 >  repl_python() 
-*Python 3.6.5 (C:\Apps\ANACON~1\python.exe)
+*Python 3.6.5 (C:\\PROGRA~3\\ANACON~1\\python.exe)
 *Reticulate 1.10 REPL -- A Python interpreter in R.
 >>>  
 ```
@@ -791,15 +830,72 @@ background-position: 95% 7%
 
 ```{r eval=FALSE}
 >  repl_python() 
-Python 3.6.5 (C:\Apps\ANACON~1\python.exe)
+Python 3.6.5 (C:\\PROGRA~3\\ANACON~1\\python.exe)
 Reticulate 1.10 REPL -- A Python interpreter in R.
 *>>>  
 ```
 
-* You get a message to tell you what version of Python you're using and where it is  
+* You get a message to tell you what version of Python you're using and where it is.  
 
-* `>>>` indicates the Python prompt  
+* `>>>` indicates the Python prompt.  
 
+--
+
+We need to use Python 3.
+
+By default, `reticulate` uses the version of Python found on your PATH. 
+
+--
+
+If Python 3 is not being used (possibly Mac users) we can change it.
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## `r emo::ji("snake")` Change the Python version
+
+End the `repl_python` session:
+
+```{r eval=FALSE}
+>>> exit
+>
+```
+
+--
+## `r emo::ji("blue heart")` 
+
+Set the version of Python you want to use. 
+
+This needs to be where Anaconda3 installed. In my case:
+
+```{r eval=FALSE}
+> use_python("C:/ProgramData/Anaconda3/python.exe")
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# Using Python in the console
+
+## `r emo::ji("blue heart")` Check the Python version
+
+Confirm it has been set:
+
+```{r eval=FALSE}
+> Sys.which("python")
+                              python 
+"C:\\PROGRA~3\\ANACON~1\\python.exe" 
+```
+
+On windows machines the paths will be short paths (8+3 components, no spaces) with \ as the path delimiter. 
+
+In my case, it is short for `C:/ProgramData/Anaconda3/python.exe`
+
+So I know I'm using Python 3
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -886,7 +982,7 @@ Find the size of `python_array` with:
 
 --
 
-`size` is an *attribute* of NumPy arrays. 
+`size` is an *attribute* or *value* of NumPy arrays. 
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -905,6 +1001,7 @@ Find the mean of `python_array`
 >>>
 ```
 
+`mean()` is an *method* of NumPy arrays.
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -976,7 +1073,10 @@ And we have normal command completion so typing `py$` followed by the TAB key тн
 
 --
 
-Notice we have more than `python_array`. We will return to this in a few slides.
+Notice we have more than `python_array`. 
+
+We will return to this in a few slides.
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1225,34 +1325,7 @@ There are `r sum(datasummary$Freq)` segments in total of which `r sum(datasummar
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
 
-# How: Using Python in R Markdown
-
-## Let's get started...organising
-
-
-Start a new project<sup>1</sup>  called "music_ml"
-
-File | New Project
-
-.footnote[
-[1] New to projects? [RStudio: Using Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-]
-
---
-
-Make three folders in your music_ml project folder called
-
-"Piano"  
-"Violin"  
-"Violin_and_Piano"  
-
-
---
-
-Download the files from [github](https://github.com/3mmaRand/useR2019_tutorial/tree/master/music_ml)
-
 ---
-
 background-image: url(pics/rmarkdown.png)
 background-position: 95% 5%
 background-size: 100px
@@ -2060,6 +2133,12 @@ Sympy: Symbolic mathematics
 pandas: Data structures & analysis  
 
 Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001-, http://www.scipy.org/ [Online; accessed 2019-07-03].
+
+
+rladies these
+
+rmarkdown
+xaringan
 
 ---
 

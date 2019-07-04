@@ -39,6 +39,33 @@ Start RStudio, open tester.Rmd and hit the knit button.
 
 If all goes well, you should get this output: [tester.html](tester.html)
 
+#### Error?
+
+Did you get this error: 
+
+**This application has failed to start because it could not find or load the qt platform plugin "windows" in "" **
+
+
+![](pics/QT_error.png)
+
+Some people seem to get this error but not everyone. I've seen it on some windows machines.
+
+You need to set your QT_PLUGIN_PATH environment variable to where the RStudio and Anaconda3 plugins are located 
+
+In windows: Control Panel -> System and Security -> System then
+
+Advanced System settings -> Environment variables
+
+I have set mine to:
+
+`C:\Program Files\RStudio\bin\plugins; C:\ProgramData\Anaconda3\Library\plugins`
+
+You may need to add a new variable.
+
+![ QT_PLUGIN_PATH environment variable in Advanced System settings](pics/env_variables.png)
+
+If you can describe, resolve or circumvent this in a better but still minimal way, please get in touch!
+
 #### Help!
 If you have any problems with the pre-tutorial instructions please get in touch with me on emma.rand@york.ac.uk and I'll do my best to help.
 
