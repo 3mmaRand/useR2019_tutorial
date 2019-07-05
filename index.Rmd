@@ -516,17 +516,12 @@ background-size: 280px
 # This one
 
 --
+
 .pull-right[
-![snake](pics/anconda-1.jpg) **Not this one**
+![snake](pics/anconda-1.jpg) 
+
+**Not this one**
 ]
-
---
-
-
-![nicki_minaj](pics/nicki.jpg)  
-
-**And definitely not this one!**   
-Google is not always your friend!
 
 
 ---
@@ -603,15 +598,72 @@ r_array <- c(4, 5, 1, 6, 8)
 ```
 
 --
+In Python you might use a list<sup>1</sup>
 
-In Python you might<sup>1</sup> use the [NumPy package](http://www.numpy.org/)<sup>2</sup>. NumPy arrays behave like R vectors/arrays.
+A list is created like this:
+```{python eval=FALSE}
+python_list = [4, 5, 1, 6, 8]
+```
+
+Python uses `=` for assignment
 
 .footnote[
-[1]Python doesn't have a native array data structure but it has the list.  
-[2] NumPy is the fundamental package for scientific computing with Python. It is part of the 
+[1] Python doesn't have a native array data structure
+]
+
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+# Python fundamentals
+
+But lists do not behave as a R user might expect.
+
+For example, what would you expect the output to be?
+
+```{python eval=FALSE}
+python_list = [4, 5, 1, 6, 8]
+*python_list * 2
+```
+
+--
+
+This?
+```{python eval=FALSE}
+python_list = [4, 5, 1, 6, 8]
+python_list * 2
+*[4, 10, 2, 12, 16]
+```
+
+--
+Infact it is this:
+```{python eval=FALSE}
+python_list = [4, 5, 1, 6, 8]
+python_list * 2
+*[4, 5, 1, 6, 8, 4, 5, 1, 6, 8]
+```
+
+
+`r emo::ji("shocked")`
+
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+# Python fundamentals
+
+Instead you might use the [NumPy package](http://www.numpy.org/)<sup>1</sup>. NumPy arrays behave like R vectors/arrays.
+
+.footnote[
+[1] NumPy is the fundamental package for scientific computing with Python. It is part of the 
 SciPy ecosystem.  
 Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001-, http://www.scipy.org/.
 ]
+--
+
+To make a NumPy array we need to first`import` NumPy, then use it's `array()` function. 
+
+This is going to introduce us to several Pythonesque things.
 
 ---
 background-image: url(pics/cute-snake.jpg)
@@ -620,21 +672,12 @@ background-position: 95% 7%
 
 # Python fundamentals
 
-To make a NumPy array we need to first`import` NumPy, then use it's `array()` function. 
 
-This is going to introduce us to several Pythonesque things.
-
---
-
-The Python code looks like this (don't type it):
+The Python code looks like this:
 ```{python eval=FALSE}
 import numpy as np
 python_array = np.array([4, 5, 1, 6, 8])
 ```
-
---
-
-Python uses `=` for assignment
 
 --
 
@@ -681,7 +724,9 @@ python_array.max()
 
 class: center, middle
 
-# Enough!<br> <br>Let me code!
+# Enough!<br> <br>Let me code
+
+## We will cover some more Python as we go through the tutorial.
 ---
 
 class: inverse, center, middle
@@ -707,6 +752,9 @@ We will
 * End the Python session  
 * Access the NumPy array from our R session  
 
+.footnote[
+`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` Indicates some optional Extra exercise to try while you're waiting for me to move on.
+]
 
 ---
 # Using Python in the console
@@ -784,7 +832,7 @@ Load the reticulate package
 > library(reticulate)
 ```
 
-For this section on using `repl_python()` I will show the prompt in the code.
+For this section on using `repl_python()` I will show the prompt, either `>` or`>>>` in the code.
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -798,8 +846,8 @@ With `repl_python()`:
 
 ```{r eval=FALSE}
 >  repl_python() 
-Python 3.6.5 (C:\\PROGRA~3\\ANACON~1\\python.exe)
-Reticulate 1.10 REPL -- A Python interpreter in R.
+Python 3.7.3 (C:\PROGRA~3\ANACON~1\python.exe)
+Reticulate 1.12.0.9003 REPL -- A Python interpreter in R
 >>>  
 ```
 
@@ -813,8 +861,8 @@ background-position: 95% 7%
 
 ```{r eval=FALSE}
 >  repl_python() 
-*Python 3.6.5 (C:\\PROGRA~3\\ANACON~1\\python.exe)
-*Reticulate 1.10 REPL -- A Python interpreter in R.
+*Python 3.7.3 (C:\PROGRA~3\ANACON~1\python.exe)
+*Reticulate 1.12.0.9003 REPL -- A Python interpreter in R
 >>>  
 ```
 
@@ -830,8 +878,8 @@ background-position: 95% 7%
 
 ```{r eval=FALSE}
 >  repl_python() 
-Python 3.6.5 (C:\\PROGRA~3\\ANACON~1\\python.exe)
-Reticulate 1.10 REPL -- A Python interpreter in R.
+Python 3.7.3 (C:\PROGRA~3\ANACON~1\python.exe)
+Reticulate 1.12.0.9003 REPL -- A Python interpreter in R
 *>>>  
 ```
 
@@ -905,11 +953,17 @@ background-position: 95% 7%
 
 ## `r emo::ji("snake")` Make a NumPy array
 
+
 Import the [NumPy package](http://www.numpy.org/)
 ```{r eval=FALSE}
 >>> import numpy as np
 >>> 
 ```
+.footnote[
+`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` 1. Create a list, `python_list`  
+`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` 2. Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+]
+
 --
 and create an array in the console
 ```{r eval=FALSE}
@@ -980,6 +1034,10 @@ Find the size of `python_array` with:
 >>>
 ```
 
+.footnote[
+`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` What does `.size` give for the dataframe? Try `.shape`
+]
+
 --
 
 `size` is an *attribute* or *value* of NumPy arrays. 
@@ -993,7 +1051,11 @@ background-position: 95% 7%
 
 ## `r emo::ji("snake")`Work with a NumPy array
 
-Find the mean of `python_array`
+Can youfind the mean of `python_array`
+.footnote[
+`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` exercises median, max, min sum
+]
+--
 
 ```{r eval=FALSE}
 >>> python_array.mean()
@@ -1057,6 +1119,10 @@ But we **can** access the Python object using `py$...`
 > py$python_array
 [1] 4 5 1 6 8
 ```
+
+.footnote[
+`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` Can you access the pandas dataframe? What sort of object is it?
+]
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1858,7 +1924,6 @@ python_spectrum = pd.read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 `r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
 ]
 
-`r kableExtra::text_spec("Extra exercises", background = "darkturquoise", color = "black")`
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -2123,6 +2188,43 @@ Epic! Python and R plots in one doc!
 # References and credits
 Incomplete!!
 
+small>
+Allaire, J.J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W. and Iannone, R. (2019). rmarkdown: Dynamic Documents for R. R  package version 1.12. URL https://rmarkdown.rstudio.com.
+
+Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, http://www.scipy.org/
+
+Kaggle.com. (2019). Kaggle Machine Learning & Data Science Survey 2017. [online] Available at: https://www.kaggle.com/kaggle/kaggle-survey-2017 [Accessed 5 Jul. 2019].
+
+Kaggle.com. (2019). Predicting R vs. Python | Kaggle. [online] Available at: https://www.kaggle.com/nanomathias/predicting-r-vs-python/notebook [Accessed 5 Jul. 2019].
+
+McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56
+
+Mangano, A. (2019). The Reticulate Package Solves the Hardest Problem in Data Science: People. [Blog] R Views. Available at: https://rviews.rstudio.com/2019/03/18/the-reticulate-package-solves-the-hardest-problem-in-data-science-people/ [Accessed 5 Jul. 2019].
+
+Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
+
+Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
+
+R Core Team (2018). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+
+Ushey, Kevin, J. J. Allaire, and Yuan Tang. (2019). “Reticulate: Interface to ‘Python.’” https://CRAN.R-project.org/package=reticulate.
+
+Wickham, H. (2014). "Tidy Data," Journal of Statistical Software, 59, available at http://www.jstatsoft.org/article/view/v059i10
+
+Wickham, H. & Grolemund, G. (2016). R for Data Science. O’Reilly. http://r4ds.had.co.nz/
+
+Wickham, H. (2017). tidyverse: Easily Install and Load the 'Tidyverse'. R package version 1.2.1. https://CRAN.R-project.org/package=tidyverse
+
+Wilkinson, L. (2005). The Grammar of Graphics. Statistics and Computing. 2nd ed. New York, NY: Springer
+
+Xie, Y. and Allaire J.J. and Grolemund, G. (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
+
+Xie, Y. (2019). xaringan: Presentation Ninja. R package version 0.9.  https://CRAN.R-project.org/package=xaringan
+
+</small>
+
+
+
 SciPy (pronounced “Sigh Pie”) is a Python-based ecosystem of open-source software for mathematics, science, and engineering. In particular, these are some of the core packages:
 
 NumPy: Base N-dimensional array package  
@@ -2132,7 +2234,7 @@ IPython: Enhanced Interactive Console
 Sympy: Symbolic mathematics  
 pandas: Data structures & analysis  
 
-Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001-, http://www.scipy.org/ [Online; accessed 2019-07-03].
+
 
 
 rladies these
