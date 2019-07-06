@@ -167,9 +167,8 @@ And finally...
 ## Everyone here for coming! 😄
 
 ---
-# Who are you?
 
-&lt;iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHXFrhsSfUXEyIhHAnP40fH5a66eRZm3YZaEcNFT-F08CKjA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading...&lt;/iframe&gt;
+&lt;iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHXFrhsSfUXEyIhHAnP40fH5a66eRZm3YZaEcNFT-F08CKjA/viewform?embedded=true" width="640" height="650" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading...&lt;/iframe&gt;
 
 
 ---
@@ -372,8 +371,11 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 ]
 ---
 
+&lt;iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFYrr2fN0fVRoKl0yvZUJSM3FwEZuO3ZzKLfqXtT6XvJumvQ/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading...&lt;/iframe&gt;
 
+---
 # Aims
+
 This tutorial was designed for:  
 * beginner to intermediate R users  
 * those with little to no experience of Python  
@@ -386,7 +388,11 @@ By the end of the tutorial you should be able to:
 * use Python methods in R code
 * incorporate Python snippets in to your R workflow even if you don't understand in detail how they work
 
-As long as you know what the Python methods and code snippets are is for, and have a good-enough understanding of their inputs and outputs, then you can use `reticulate`
+As long as you know what the Python methods and code snippets are for, and have a good-enough understanding of their inputs and outputs, then you can use `reticulate`.
+
+--
+
+Some of the code is specifically designed to develop understanding of the integration rather than refect a workflow. The later section comprises an example workflow.
 
 ---
 # Background
@@ -790,7 +796,7 @@ We will
 * Access the NumPy array from our R session  
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; Indicates an optional extra exercise to try while you're waiting for me to move on.
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise&lt;/span&gt; Indicates an optional extra exercise to try while you're waiting for me to move on.
 ]
 
 ---
@@ -1014,8 +1020,8 @@ You get command completion!
 ]
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 1.&lt;/span&gt; Create a list called `python_list`  
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 2.&lt;/span&gt; Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 1.&lt;/span&gt; Create a list called `python_list`  
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 2.&lt;/span&gt; Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
 ]
 
 --
@@ -1042,8 +1048,8 @@ But nothing appears in your R environment!
 ![](pics/empty_env.png)
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 1.&lt;/span&gt; Create a list called `python_list`  
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 2.&lt;/span&gt; Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 1.&lt;/span&gt; Create a list called `python_list`  
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 2.&lt;/span&gt; Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
 ]
 
 ---
@@ -1054,10 +1060,10 @@ background-position: 95% 7%
 
 ## 🐍 Where is our NumPy array?
 Can Python can find it? 
-####🔎
+####🔍
 
 .footnote[  
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 3.&lt;/span&gt; How do you need to organise the list of lists in the DataFrame() command to get a 4 rows and 2 columns compared to 2 rows and 4 columns.
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 3.&lt;/span&gt; How do you need to organise the list of lists in the DataFrame() command to get a 4 rows and 2 columns compared to 2 rows and 4 columns.
 ]
 
 --
@@ -1103,7 +1109,7 @@ Find the size of `python_array` with:
 ```
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 4.&lt;/span&gt; What does `.size` give for the the list and dataframe? Try `.shape`
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 4.&lt;/span&gt; What does `.size` give for the the list and dataframe? Try `.shape`
 ]
 
 --
@@ -1121,8 +1127,8 @@ background-position: 95% 7%
 
 Can you find the mean of `python_array`
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 5.&lt;/span&gt; Find other summary statistics for the array  
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 6.&lt;/span&gt; Is there a mean method for the dataframe? What about the list? Can you find the mean of your list?
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 5.&lt;/span&gt; Find other summary statistics for the array  
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 6.&lt;/span&gt; Is there a mean method for the dataframe? What about the list? Can you find the mean of your list?
 ]
 --
 
@@ -1193,7 +1199,7 @@ But we **can** access the Python object using `py$...`
 ```
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 7.&lt;/span&gt; Can you access the list and dataframe?
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 7.&lt;/span&gt; Can you access the list and dataframe?
 ]
 
 ---
@@ -1238,7 +1244,7 @@ background-position: 95% 7%
 ```
 
 .footnote[  
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 8.&lt;/span&gt; How do the list and dataframe behave? 
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 8.&lt;/span&gt; How do the list and dataframe behave? 
 ]
 
 ---
@@ -1265,7 +1271,7 @@ And look! 👀
 We can use R functions on python-created objects
 
 .footnote[   
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 9.&lt;/span&gt; What is the object translation for the list and dataframe object is it?
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 9.&lt;/span&gt; What is the object translation for the list and dataframe object is it?
 ]
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1344,7 +1350,9 @@ For example, we found the size of `python_array` with:
 5
 ```
 ]
-
+.footnote[   
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 10.&lt;/span&gt; Create a vector, array and/or dataframe in R then restart `repl_python()` and access them in the Python session with `r.` 
+]
 --
 .pull-right[
 
@@ -1364,8 +1372,6 @@ So to use the size attribute on `py$python_array`:
 --
  
 **This would be a strange thing to do!** 
-
-but I found it helped me understand the _reticulation_!
 ---
 
 background-image: url(pics/reticulated_python.png)
@@ -1380,12 +1386,17 @@ Because if you already have a python-created object on which you wanted to use s
 * Use those methods in Python in a Python way  
 * Then access the result in R for further work  
 
+.footnote[   
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 11.&lt;/span&gt; In your `repl_python` session, apply R functions to the  data structures made in the R session 
+]
 --
 
 Than
 * access the object in R
 * apply python methods to a python object in an R-like way in an R session
 * Then do your further work
+
+
 
 ---
 class: inverse, center, middle
@@ -1404,9 +1415,16 @@ background-position: 95% 7%
 
 You are going to write your own `reticulate` tutorial by combining your own notes and investigations with the code given in the slides.
 
-The tutorial is in two parts:
+--
+
+The tutorial will be in two parts:
 * The first part of the tutorial aims to develop our baseline understanding of the link between the R and Python sessions and running code chunks interactively. We will pass simple objects between sessions more than you would normally just for demomstration purposes
+
+--
+
 * The second part covers the importing, modelling and visualisation of processed audio data.
+
+--
 
 The tutorial is "Classification of Audio segments by instrument: A Tutorial on using the R package reticulate to integrate R and Python."
 
@@ -1426,9 +1444,12 @@ We are going to work with some data derived from 9 pieces of music. Three exampl
 * [Corelli - Sonata da Chiesa, Op. 1 No. 1 in F major](https://www.youtube.com/watch?v=0fLbzkBRywU)
 * [Mozart - Sonata in F major for piano and violin K 376](https://www.youtube.com/watch?v=iOq_lZWD8Lg)
 
+--
 
 The example and the original Python code to process the audio files and carry out the machine learning analysis methods are by Michael Knight, University of Bristol. 
- 
+
+--
+
 Each of the pieces of music has been segmented into 5-second segments each of which has 5000 features. The features represent the apodised power spectrum of a 5-second segment. 
 
 We will try to classify these segments.  
@@ -1442,7 +1463,7 @@ background-position: 95% 7%
 
 ## The data
 
-Upto 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
+Up to 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
 
 &lt;table class="table" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
@@ -1511,17 +1532,15 @@ background-position: 95% 7%
 
 There are two xlsx files for each piece.
 
-* xxxxxx_segments.xlsx  
+* *name*_segments.xlsx  
   has the segments in rows and the features in columns
-* xxxxxx_SegmentInfo.xlsx  
+* *name*_SegmentInfo.xlsx  
   has the metadata for each segment: the name of the piece, the instrument label on the piece, the start and end time of the segment.  
+
+--
 
 There are 496 segments in total of which 374 are from piano pieces and 63 are from violin pieces. The remaining 59 pieces are from Mozart's  Sonata piano and violin.
 
-
----
-background-image: url(pics/reticulated_python.png)
-background-position: 95% 7%
 
 ---
 background-image: url(pics/rmarkdown.png)
@@ -1550,7 +1569,7 @@ background-size: 100px
 
 ### Key points from the demo
 
-* mixes text and code  
+* blends narative text with analysis code and output  
 * human readable  
 * YAML header between the  \-\-\-
 * code chunk options control whether the code and its output end up in your 'knitted' document  
@@ -1637,11 +1656,20 @@ background-position: 95% 7%
 
 ## Add an R chunk
 
+The second code chunk in an Rmd document typically loads the required packages.
+
+--
+
 There's one package you will definitely need: `reticulate`
 
 We also also use `readxl`&lt;sup&gt;1&lt;/sup&gt; and `ggplot2`&lt;sup&gt;2&lt;/sup&gt; so let's add those too:
 
-Use Insert | R to add a code chunk
+.footnote[
+[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl  
+[2] Wickham, H. (2016) ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York https://ggplot2.tidyverse.org
+]
+--
+.pull-left[
 
 ````
 ```{r pkgs}
@@ -1651,10 +1679,18 @@ library(readxl)
 library(ggplot2)
 ```
 ````
-.footnote[
-[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl  
-[2] Wickham, H. (2016) ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York https://ggplot2.tidyverse.org
 ]
+
+.pull-right[
+Use Insert | R to add a code chunk. From now on 
+.pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: deepskyblue !important;" &gt;Insert R chunk&lt;/span&gt;
+]
+.pull-right[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python chunk&lt;/span&gt;
+]
+]
+
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1672,7 +1708,7 @@ Use the green arrow on the right of the chunk to run it.
 
 From now on 
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 
 means use the green button to run the chunk.
 
@@ -1688,11 +1724,10 @@ Now we'll add a chunk to import the Python modules we will need.
 
 In Part 1, we will use the os module
 
-
-Use Insert | Python to add a code chunk
+--
 
 .pull-left[
-
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python chunk&lt;/span&gt;
 ````
 ```{python mods}
 ########## PYTHON ##########
@@ -1703,10 +1738,12 @@ import os
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
-To use `os` methods interactively in later Python code chunks remember to run this code chunk.
+--
+
+To use `os` methods interactively in later Python code chunks be sure to run this code chunk.
 
 --
 
@@ -1740,10 +1777,13 @@ You may want to add a header indicating this is Part 1 of the tutorial
 
 A Python equivalent for R's `getwd()` is `getcwd()` from the `os` module.
 
+--
+
 If you have successfully imported the `os` module you can use it like this:
 
 
 .pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python chunk&lt;/span&gt;
 ````
 ```{python}
 ########## PYTHON ##########
@@ -1753,8 +1793,7 @@ os.getcwd()
 ````
 ]
 .pull-right[
-
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 --
@@ -1763,10 +1802,6 @@ It prints out!
 
 On a windows machine the 'windows-way' round slashes are escaped  
 On a mac the path will be given 'correctly'
-
-.footnote[
-I found I needed `print(os.getcwd())` in previous versions of `reticulate`
-]
 
 
 ---
@@ -1790,7 +1825,7 @@ Here we access the `os` object's methods
 BUT in a R-like way using the `$` not a `.`
 
 .pull-left[
-
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: deepskyblue !important;" &gt;Insert R chunk&lt;/span&gt;
 ````
 ```{r}
 ##########   R    ##########
@@ -1802,7 +1837,7 @@ py$os$getcwd()
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 ---
@@ -1815,12 +1850,12 @@ background-position: 95% 7%
 
 And we access R functions in Python chunks in a Python-like way
 
-Can you do that? Add Python chunk and use R's `getwd()`
+Can you do that? 
 
 --
 
 .pull-left[
-
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python chunk&lt;/span&gt;
 ````
 ```{python}
 ########## PYTHON ##########
@@ -1831,7 +1866,7 @@ r.getwd()
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 
@@ -1851,7 +1886,9 @@ background-position: 95% 7%
 
 We will read one of the spectrum files to learn how to access dataframes in both sessions using `read_excel()` from `readxl`:
 
+
 .pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: deepskyblue !important;" &gt;Insert R chunk&lt;/span&gt;
 ````
 ```{r}
 ##########   R    ##########
@@ -1862,27 +1899,39 @@ spectrum &lt;- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 --
 
-and check the dimensions of the dataframe:
+Check the dimensions of the dataframe
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
 
 
 .pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: deepskyblue !important;" &gt;Modify R Chunk&lt;/span&gt;
 ````
 ```{r}
 ##########   R    ##########
+spectrum &lt;- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 dim(spectrum)
 ```
-[1]  100 5001
+[1] 100 5001
 ````
+
 ]
 .pull-right[
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
-]
 
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
+]
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1901,6 +1950,8 @@ Can you use the 🐍 Pandas method `shape` in a new python chunk to achieve the 
 --
 
 .pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python chunk&lt;/span&gt;
+
 ````
 ```{python}
 ########## PYTHON ##########
@@ -1912,7 +1963,7 @@ r.spectrum.shape
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 That's right!
@@ -1926,7 +1977,6 @@ background-position: 95% 7%
 ## Part 1 Building our understanding
 
 * 100 rows _i.e._, segments. 
-
 * 5001 columns. The first column, "...1" is the segment label; the others are the 5000 features. They have the names "0" to "4999"
 
 Using R to find the mean and s.d. of the second feature&lt;sup&gt;1&lt;/sup&gt;
@@ -1935,14 +1985,16 @@ Using R to find the mean and s.d. of the second feature&lt;sup&gt;1&lt;/sup&gt;
 [1] There's nothing specials about feature 2. I'm avoiding the first feature simply because it is atypical
 ]
 
-.pull-left[
+--
 
+
+.pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: deepskyblue !important;" &gt;Insert R Chunk&lt;/span&gt;
 ````
 ```{r}
 ##########   R    ##########
 mean(spectrum$`1`)
 sd(spectrum$`1`)
-
 ```
 [1] 4422.34
 [1] 5711.785
@@ -1951,7 +2003,7 @@ sd(spectrum$`1`)
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 
@@ -1968,7 +2020,7 @@ Can you use Python to achieve the same:
 --
 
 .pull-left[
-
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python Chunk&lt;/span&gt;
 ````
 ```{python}
 ########## PYTHON ##########
@@ -1982,7 +2034,7 @@ r.spectrum["1"].std()
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 Well done!
@@ -2015,6 +2067,7 @@ You'll need to first add the `Pandas`&lt;sup&gt;1&lt;/sup&gt; module to your lis
 --
 
 .pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Modify Python Chunk&lt;/span&gt;
 ````
 ```{python mods}
 ########## PYTHON ##########
@@ -2026,7 +2079,7 @@ import pandas as pd
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 .footnote[
@@ -2043,6 +2096,7 @@ background-position: 95% 7%
 Read in the file:
 
 .pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python Chunk&lt;/span&gt;
 ````
 ```{python}
 ########## PYTHON ##########
@@ -2053,7 +2107,7 @@ python_spectrum = pd.read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 
@@ -2070,6 +2124,8 @@ This will be carried out with Python.
 
 **Overivew**  
 The nine "_segments.xlsx" files are read in to a single Pandas dataframe, `df_seg`.
+
+--
 
 This requires nested `for` loops to iterate through the directories and through the files in the directories. 
 
@@ -2109,7 +2165,7 @@ for d in dirs_to_use:
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 ---
@@ -2156,7 +2212,7 @@ from sklearn.decomposition.pca import PCA
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 
@@ -2184,7 +2240,7 @@ new_data = mdl.fit_transform(df_seg)
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 `new_data` contains the Principle Component scores
@@ -2224,7 +2280,7 @@ import matplotlib.pyplot as plt
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 ---
@@ -2257,7 +2313,7 @@ plt.figure()
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 You should see the Python plot in your file!
@@ -2300,7 +2356,7 @@ ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
 ]
 .pull-right[
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgreen !important;" &gt;RUN&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
 
 You should see the R plot in your file!
@@ -2318,61 +2374,22 @@ Epic! Python and R plots in one doc!
 
 ---
 # References and credits
-Incomplete!!
 
-small&gt;
-Allaire, J.J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W. and Iannone, R. (2019). rmarkdown: Dynamic Documents for R. R  package version 1.12. URL https://rmarkdown.rstudio.com.
-
-Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, http://www.scipy.org/
-
-Kaggle.com. (2019). Kaggle Machine Learning &amp; Data Science Survey 2017. [online] Available at: https://www.kaggle.com/kaggle/kaggle-survey-2017 [Accessed 5 Jul. 2019].
-
-Kaggle.com. (2019). Predicting R vs. Python | Kaggle. [online] Available at: https://www.kaggle.com/nanomathias/predicting-r-vs-python/notebook [Accessed 5 Jul. 2019].
-
-McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56
-
-Mangano, A. (2019). The Reticulate Package Solves the Hardest Problem in Data Science: People. [Blog] R Views. Available at: https://rviews.rstudio.com/2019/03/18/the-reticulate-package-solves-the-hardest-problem-in-data-science-people/ [Accessed 5 Jul. 2019].
-
-Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
-
-Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
-
-R Core Team (2018). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
-
-Ushey, Kevin, J. J. Allaire, and Yuan Tang. (2019). “Reticulate: Interface to ‘Python.’” https://CRAN.R-project.org/package=reticulate.
-
-Wickham, H. (2014). "Tidy Data," Journal of Statistical Software, 59, available at http://www.jstatsoft.org/article/view/v059i10
-
-Wickham, H. &amp; Grolemund, G. (2016). R for Data Science. O’Reilly. http://r4ds.had.co.nz/
-
-Wickham, H. (2017). tidyverse: Easily Install and Load the 'Tidyverse'. R package version 1.2.1. https://CRAN.R-project.org/package=tidyverse
-
-Wilkinson, L. (2005). The Grammar of Graphics. Statistics and Computing. 2nd ed. New York, NY: Springer
-
-Xie, Y. and Allaire J.J. and Grolemund, G. (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
-
-Xie, Y. (2019). xaringan: Presentation Ninja. R package version 0.9.  https://CRAN.R-project.org/package=xaringan
-
+&lt;small&gt;
+* Allaire, J.J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W. and Iannone, R. (2019). rmarkdown: Dynamic Documents for R. R  package version 1.12. URL https://rmarkdown.rstudio.com.
+* Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, http://www.scipy.org/
+* Kaggle.com. (2019). Kaggle Machine Learning &amp; Data Science Survey 2017. [online] Available at: https://www.kaggle.com/kaggle/kaggle-survey-2017 [Accessed 5 Jul. 2019].
+* Kaggle.com. (2019). Predicting R vs. Python | Kaggle. [online] Available at: https://www.kaggle.com/nanomathias/predicting-r-vs-python/notebook [Accessed 5 Jul. 2019].
+* McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56
+* Mangano, A. (2019). The Reticulate Package Solves the Hardest Problem in Data Science: People. [Blog] R Views. Available at: https://rviews.rstudio.com/2019/03/18/the-reticulate-package-solves-the-hardest-problem-in-data-science-people/ [Accessed 5 Jul. 2019].
+* Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
+* Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
+* R Core Team (2018). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+* Ushey, Kevin, J. J. Allaire, and Yuan Tang. (2019). “Reticulate: Interface to ‘Python.’” https://CRAN.R-project.org/package=reticulate.
+* Xie, Y. and Allaire J.J. and Grolemund, G. (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
+* Xie, Y. (2019). xaringan: Presentation Ninja. R package version 0.9.  https://CRAN.R-project.org/package=xaringan
 &lt;/small&gt;
 
-
-
-SciPy (pronounced “Sigh Pie”) is a Python-based ecosystem of open-source software for mathematics, science, and engineering. In particular, these are some of the core packages:
-
-NumPy: Base N-dimensional array package  
-SciPy library: Fundamental library for scientific computing  
-Matplotlib: Comprehensive 2D Plotting  
-IPython: Enhanced Interactive Console  
-Sympy: Symbolic mathematics  
-pandas: Data structures &amp; analysis  
-
-
-
-
-rladies these
-
-rmarkdown
-xaringan
 
 ---
 

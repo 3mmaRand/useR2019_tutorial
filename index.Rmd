@@ -176,9 +176,8 @@ And finally...
 ## Everyone here for coming! `r emo::ji("smile")`
 
 ---
-# Who are you?
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHXFrhsSfUXEyIhHAnP40fH5a66eRZm3YZaEcNFT-F08CKjA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHXFrhsSfUXEyIhHAnP40fH5a66eRZm3YZaEcNFT-F08CKjA/viewform?embedded=true" width="640" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
 
 ---
@@ -381,8 +380,11 @@ Materials:   https://github.com/3mmaRand/useR2019_tutorial
 ]
 ---
 
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFYrr2fN0fVRoKl0yvZUJSM3FwEZuO3ZzKLfqXtT6XvJumvQ/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
+---
 # Aims
+
 This tutorial was designed for:  
 * beginner to intermediate R users  
 * those with little to no experience of Python  
@@ -395,7 +397,11 @@ By the end of the tutorial you should be able to:
 * use Python methods in R code
 * incorporate Python snippets in to your R workflow even if you don't understand in detail how they work
 
-As long as you know what the Python methods and code snippets are is for, and have a good-enough understanding of their inputs and outputs, then you can use `reticulate`
+As long as you know what the Python methods and code snippets are for, and have a good-enough understanding of their inputs and outputs, then you can use `reticulate`.
+
+--
+
+Some of the code is specifically designed to develop understanding of the integration rather than refect a workflow. The later section comprises an example workflow.
 
 ---
 # Background
@@ -774,7 +780,7 @@ We will
 * Access the NumPy array from our R session  
 
 .footnote[
-`r kableExtra::text_spec("Extra exercise", background = "darkturquoise", color = "black")` Indicates an optional extra exercise to try while you're waiting for me to move on.
+`r kableExtra::text_spec("Extra exercise", background = "purple", color = "white", bold = TRUE)` Indicates an optional extra exercise to try while you're waiting for me to move on.
 ]
 
 ---
@@ -988,8 +994,8 @@ You get command completion!
 ]
 
 .footnote[
-`r kableExtra::text_spec("Extra exercise 1.", background = "darkturquoise", color = "black")` Create a list called `python_list`  
-`r kableExtra::text_spec("Extra exercise 2.", background = "darkturquoise", color = "black")` Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+`r kableExtra::text_spec("Extra exercise 1.", background = "purple", color = "white", bold = TRUE)` Create a list called `python_list`  
+`r kableExtra::text_spec("Extra exercise 2.", background = "purple", color = "white", bold = TRUE)` Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
 ]
 
 --
@@ -1015,8 +1021,8 @@ But nothing appears in your R environment!
 ![](pics/empty_env.png)
 
 .footnote[
-`r kableExtra::text_spec("Extra exercise 1.", background = "darkturquoise", color = "black")` Create a list called `python_list`  
-`r kableExtra::text_spec("Extra exercise 2.", background = "darkturquoise", color = "black")` Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+`r kableExtra::text_spec("Extra exercise 1.", background = "purple", color = "white", bold = TRUE)` Create a list called `python_list`  
+`r kableExtra::text_spec("Extra exercise 2.", background = "purple", color = "white", bold = TRUE)` Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
 ]
 
 ---
@@ -1030,7 +1036,7 @@ Can Python can find it?
 ####`r emo::ji("search")`
 
 .footnote[  
-`r kableExtra::text_spec("Extra exercise 3.", background = "darkturquoise", color = "black")` How do you need to organise the list of lists in the DataFrame() command to get a 4 rows and 2 columns compared to 2 rows and 4 columns.
+`r kableExtra::text_spec("Extra exercise 3.", background = "purple", color = "white", bold = TRUE)` How do you need to organise the list of lists in the DataFrame() command to get a 4 rows and 2 columns compared to 2 rows and 4 columns.
 ]
 
 --
@@ -1073,7 +1079,7 @@ Find the size of `python_array` with:
 ```
 
 .footnote[
-`r kableExtra::text_spec("Extra exercise 4.", background = "darkturquoise", color = "black")` What does `.size` give for the the list and dataframe? Try `.shape`
+`r kableExtra::text_spec("Extra exercise 4.", background = "purple", color = "white", bold = TRUE)` What does `.size` give for the the list and dataframe? Try `.shape`
 ]
 
 --
@@ -1091,8 +1097,8 @@ background-position: 95% 7%
 
 Can you find the mean of `python_array`
 .footnote[
-`r kableExtra::text_spec("Extra exercise 5.", background = "darkturquoise", color = "black")` Find other summary statistics for the array  
-`r kableExtra::text_spec("Extra exercise 6.", background = "darkturquoise", color = "black")` Is there a mean method for the dataframe? What about the list? Can you find the mean of your list?
+`r kableExtra::text_spec("Extra exercise 5.", background = "purple", color = "white", bold = TRUE)` Find other summary statistics for the array  
+`r kableExtra::text_spec("Extra exercise 6.", background = "purple", color = "white", bold = TRUE)` Is there a mean method for the dataframe? What about the list? Can you find the mean of your list?
 ]
 --
 
@@ -1159,7 +1165,7 @@ But we **can** access the Python object using `py$...`
 ```
 
 .footnote[
-`r kableExtra::text_spec("Extra exercise 7.", background = "darkturquoise", color = "black")` Can you access the list and dataframe?
+`r kableExtra::text_spec("Extra exercise 7.", background = "purple", color = "white", bold = TRUE)` Can you access the list and dataframe?
 ]
 
 ---
@@ -1202,7 +1208,7 @@ background-position: 95% 7%
 ```
 
 .footnote[  
-`r kableExtra::text_spec("Extra exercise 8.", background = "darkturquoise", color = "black")` How do the list and dataframe behave? 
+`r kableExtra::text_spec("Extra exercise 8.", background = "purple", color = "white", bold = TRUE)` How do the list and dataframe behave? 
 ]
 
 ---
@@ -1228,7 +1234,7 @@ And look! `r emo::ji("look")`
 We can use R functions on python-created objects
 
 .footnote[   
-`r kableExtra::text_spec("Extra exercise 9.", background = "darkturquoise", color = "black")` What is the object translation for the list and dataframe object is it?
+`r kableExtra::text_spec("Extra exercise 9.", background = "purple", color = "white", bold = TRUE)` What is the object translation for the list and dataframe object is it?
 ]
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1303,7 +1309,9 @@ For example, we found the size of `python_array` with:
 5
 ```
 ]
-
+.footnote[   
+`r kableExtra::text_spec("Extra exercise 10.", background = "purple", color = "white", bold = TRUE)` Create a vector, array and/or dataframe in R then restart `repl_python()` and access them in the Python session with `r.` 
+]
 --
 .pull-right[
 
@@ -1322,8 +1330,6 @@ So to use the size attribute on `py$python_array`:
 --
  
 **This would be a strange thing to do!** 
-
-but I found it helped me understand the _reticulation_!
 ---
 
 background-image: url(pics/reticulated_python.png)
@@ -1338,12 +1344,17 @@ Because if you already have a python-created object on which you wanted to use s
 * Use those methods in Python in a Python way  
 * Then access the result in R for further work  
 
+.footnote[   
+`r kableExtra::text_spec("Extra exercise 11.", background = "purple", color = "white", bold = TRUE)` In your `repl_python` session, apply R functions to the  data structures made in the R session 
+]
 --
 
 Than
 * access the object in R
 * apply python methods to a python object in an R-like way in an R session
 * Then do your further work
+
+
 
 ---
 class: inverse, center, middle
@@ -1362,9 +1373,16 @@ background-position: 95% 7%
 
 You are going to write your own `reticulate` tutorial by combining your own notes and investigations with the code given in the slides.
 
-The tutorial is in two parts:
+--
+
+The tutorial will be in two parts:
 * The first part of the tutorial aims to develop our baseline understanding of the link between the R and Python sessions and running code chunks interactively. We will pass simple objects between sessions more than you would normally just for demomstration purposes
+
+--
+
 * The second part covers the importing, modelling and visualisation of processed audio data.
+
+--
 
 The tutorial is "Classification of Audio segments by instrument: A Tutorial on using the R package reticulate to integrate R and Python."
 
@@ -1384,9 +1402,12 @@ We are going to work with some data derived from 9 pieces of music. Three exampl
 * [Corelli - Sonata da Chiesa, Op. 1 No. 1 in F major](https://www.youtube.com/watch?v=0fLbzkBRywU)
 * [Mozart - Sonata in F major for piano and violin K 376](https://www.youtube.com/watch?v=iOq_lZWD8Lg)
 
+--
 
 The example and the original Python code to process the audio files and carry out the machine learning analysis methods are by Michael Knight, University of Bristol. 
- 
+
+--
+
 Each of the pieces of music has been segmented into 5-second segments each of which has 5000 features. The features represent the apodised power spectrum of a 5-second segment. 
 
 We will try to classify these segments.  
@@ -1400,7 +1421,7 @@ background-position: 95% 7%
 
 ## The data
 
-Upto 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
+Up to 100 segments were taken from each audio file although there are fewer for pieces shorter than 500 seconds.
 
 ```{r echo=FALSE}
 datasummary <- read.table("music_ml/datasummary.txt", header = T, sep= ",")
@@ -1422,17 +1443,15 @@ background-position: 95% 7%
 
 There are two xlsx files for each piece.
 
-* xxxxxx_segments.xlsx  
+* *name*_segments.xlsx  
   has the segments in rows and the features in columns
-* xxxxxx_SegmentInfo.xlsx  
+* *name*_SegmentInfo.xlsx  
   has the metadata for each segment: the name of the piece, the instrument label on the piece, the start and end time of the segment.  
+
+--
 
 There are `r sum(datasummary$Freq)` segments in total of which `r sum(datasummary$Freq[datasummary$Type == "Piano"])` are from piano pieces and `r sum(datasummary$Freq[datasummary$Type == "Violin"])` are from violin pieces. The remaining `r sum(datasummary$Freq[datasummary$Type == "Violin and Piano"])` pieces are from Mozart's  Sonata piano and violin.
 
-
----
-background-image: url(pics/reticulated_python.png)
-background-position: 95% 7%
 
 ---
 background-image: url(pics/rmarkdown.png)
@@ -1461,7 +1480,7 @@ background-size: 100px
 
 ### Key points from the demo
 
-* mixes text and code  
+* blends narative text with analysis code and output  
 * human readable  
 * YAML header between the  \-\-\-
 * code chunk options control whether the code and its output end up in your 'knitted' document  
@@ -1548,11 +1567,20 @@ background-position: 95% 7%
 
 ## Add an R chunk
 
+The second code chunk in an Rmd document typically loads the required packages.
+
+--
+
 There's one package you will definitely need: `reticulate`
 
 We also also use `readxl`<sup>1</sup> and `ggplot2`<sup>2</sup> so let's add those too:
 
-Use Insert | R to add a code chunk
+.footnote[
+[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl  
+[2] Wickham, H. (2016) ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York https://ggplot2.tidyverse.org
+]
+--
+.pull-left[
 
 ````
 ```{r pkgs}`r ''`
@@ -1562,10 +1590,18 @@ library(readxl)
 library(ggplot2)
 ```
 ````
-.footnote[
-[1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl  
-[2] Wickham, H. (2016) ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York https://ggplot2.tidyverse.org
 ]
+
+.pull-right[
+Use Insert | R to add a code chunk. From now on 
+.pull-left[
+`r kableExtra::text_spec("Insert R chunk", background = "deepskyblue", bold = TRUE, color = "black")`
+]
+.pull-right[
+`r kableExtra::text_spec("Insert Python chunk", background = "greenyellow", bold = TRUE, color = "black")`
+]
+]
+
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1583,7 +1619,7 @@ Use the green arrow on the right of the chunk to run it.
 
 From now on 
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 
 means use the green button to run the chunk.
 
@@ -1599,11 +1635,10 @@ Now we'll add a chunk to import the Python modules we will need.
 
 In Part 1, we will use the os module
 
-
-Use Insert | Python to add a code chunk
+--
 
 .pull-left[
-
+`r kableExtra::text_spec("Insert Python chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python mods}`r ''`
 ########## PYTHON ##########
@@ -1614,10 +1649,12 @@ import os
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
-To use `os` methods interactively in later Python code chunks remember to run this code chunk.
+--
+
+To use `os` methods interactively in later Python code chunks be sure to run this code chunk.
 
 --
 
@@ -1651,10 +1688,13 @@ You may want to add a header indicating this is Part 1 of the tutorial
 
 A Python equivalent for R's `getwd()` is `getcwd()` from the `os` module.
 
+--
+
 If you have successfully imported the `os` module you can use it like this:
 
 
 .pull-left[
+`r kableExtra::text_spec("Insert Python chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -1664,8 +1704,7 @@ os.getcwd()
 ````
 ]
 .pull-right[
-
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 --
@@ -1674,10 +1713,6 @@ It prints out!
 
 On a windows machine the 'windows-way' round slashes are escaped  
 On a mac the path will be given 'correctly'
-
-.footnote[
-I found I needed `print(os.getcwd())` in previous versions of `reticulate`
-]
 
 
 ---
@@ -1701,7 +1736,7 @@ Here we access the `os` object's methods
 BUT in a R-like way using the `$` not a `.`
 
 .pull-left[
-
+`r kableExtra::text_spec("Insert R chunk", background = "deepskyblue", bold = TRUE, color = "black")`
 ````
 ```{r}`r ''`
 ##########   R    ##########
@@ -1713,7 +1748,7 @@ py$os$getcwd()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 ---
@@ -1726,12 +1761,12 @@ background-position: 95% 7%
 
 And we access R functions in Python chunks in a Python-like way
 
-Can you do that? Add Python chunk and use R's `getwd()`
+Can you do that? 
 
 --
 
 .pull-left[
-
+`r kableExtra::text_spec("Insert Python chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -1742,7 +1777,7 @@ r.getwd()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -1762,7 +1797,9 @@ background-position: 95% 7%
 
 We will read one of the spectrum files to learn how to access dataframes in both sessions using `read_excel()` from `readxl`:
 
+
 .pull-left[
+`r kableExtra::text_spec("Insert R chunk", background = "deepskyblue", bold = TRUE, color = "black")`
 ````
 ```{r}`r ''`
 ##########   R    ##########
@@ -1773,27 +1810,39 @@ spectrum <- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 --
 
-and check the dimensions of the dataframe:
+Check the dimensions of the dataframe
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
 
 
 .pull-left[
+`r kableExtra::text_spec("Modify R Chunk", background = "deepskyblue", bold = TRUE, color = "black")`
 ````
 ```{r}`r ''`
 ##########   R    ##########
+spectrum <- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 dim(spectrum)
 ```
-[1]  100 5001
+[1] 100 5001
 ````
+
 ]
 .pull-right[
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
-]
 
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+]
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1812,6 +1861,8 @@ Can you use the `r emo::ji("snake")` Pandas method `shape` in a new python chunk
 --
 
 .pull-left[
+`r kableExtra::text_spec("Insert Python chunk", background = "greenyellow", bold = TRUE, color = "black")`
+
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -1823,7 +1874,7 @@ r.spectrum.shape
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 That's right!
@@ -1837,7 +1888,6 @@ background-position: 95% 7%
 ## Part 1 Building our understanding
 
 * 100 rows _i.e._, segments. 
-
 * 5001 columns. The first column, "...1" is the segment label; the others are the 5000 features. They have the names "0" to "4999"
 
 Using R to find the mean and s.d. of the second feature<sup>1</sup>
@@ -1846,14 +1896,16 @@ Using R to find the mean and s.d. of the second feature<sup>1</sup>
 [1] There's nothing specials about feature 2. I'm avoiding the first feature simply because it is atypical
 ]
 
-.pull-left[
+--
 
+
+.pull-left[
+`r kableExtra::text_spec("Insert R Chunk", background = "deepskyblue", bold = TRUE, color = "black")`
 ````
 ```{r}`r ''`
 ##########   R    ##########
 mean(spectrum$`1`)
 sd(spectrum$`1`)
-
 ```
 [1] 4422.34
 [1] 5711.785
@@ -1862,7 +1914,7 @@ sd(spectrum$`1`)
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -1879,7 +1931,7 @@ Can you use Python to achieve the same:
 --
 
 .pull-left[
-
+`r kableExtra::text_spec("Insert Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -1893,7 +1945,7 @@ r.spectrum["1"].std()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 Well done!
@@ -1926,6 +1978,7 @@ You'll need to first add the `Pandas`<sup>1</sup> module to your list of import 
 --
 
 .pull-left[
+`r kableExtra::text_spec("Modify Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python mods}`r ''`
 ########## PYTHON ##########
@@ -1937,7 +1990,7 @@ import pandas as pd
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 .footnote[
@@ -1954,6 +2007,7 @@ background-position: 95% 7%
 Read in the file:
 
 .pull-left[
+`r kableExtra::text_spec("Insert Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -1964,7 +2018,7 @@ python_spectrum = pd.read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -1981,6 +2035,8 @@ This will be carried out with Python.
 
 **Overivew**  
 The nine "_segments.xlsx" files are read in to a single Pandas dataframe, `df_seg`.
+
+--
 
 This requires nested `for` loops to iterate through the directories and through the files in the directories. 
 
@@ -2020,7 +2076,7 @@ for d in dirs_to_use:
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 ---
@@ -2067,7 +2123,7 @@ from sklearn.decomposition.pca import PCA
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -2095,7 +2151,7 @@ new_data = mdl.fit_transform(df_seg)
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 `new_data` contains the Principle Component scores
@@ -2135,7 +2191,7 @@ import matplotlib.pyplot as plt
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 ---
@@ -2168,7 +2224,7 @@ plt.figure()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 You should see the Python plot in your file!
@@ -2211,7 +2267,7 @@ ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
 ]
 .pull-right[
 
-`r kableExtra::text_spec("RUN", background = "darkgreen", bold = TRUE, color = "white")`
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 You should see the R plot in your file!
@@ -2229,61 +2285,22 @@ Epic! Python and R plots in one doc!
 
 ---
 # References and credits
-Incomplete!!
 
-small>
-Allaire, J.J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W. and Iannone, R. (2019). rmarkdown: Dynamic Documents for R. R  package version 1.12. URL https://rmarkdown.rstudio.com.
-
-Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, http://www.scipy.org/
-
-Kaggle.com. (2019). Kaggle Machine Learning & Data Science Survey 2017. [online] Available at: https://www.kaggle.com/kaggle/kaggle-survey-2017 [Accessed 5 Jul. 2019].
-
-Kaggle.com. (2019). Predicting R vs. Python | Kaggle. [online] Available at: https://www.kaggle.com/nanomathias/predicting-r-vs-python/notebook [Accessed 5 Jul. 2019].
-
-McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56
-
-Mangano, A. (2019). The Reticulate Package Solves the Hardest Problem in Data Science: People. [Blog] R Views. Available at: https://rviews.rstudio.com/2019/03/18/the-reticulate-package-solves-the-hardest-problem-in-data-science-people/ [Accessed 5 Jul. 2019].
-
-Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
-
-Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
-
-R Core Team (2018). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
-
-Ushey, Kevin, J. J. Allaire, and Yuan Tang. (2019). “Reticulate: Interface to ‘Python.’” https://CRAN.R-project.org/package=reticulate.
-
-Wickham, H. (2014). "Tidy Data," Journal of Statistical Software, 59, available at http://www.jstatsoft.org/article/view/v059i10
-
-Wickham, H. & Grolemund, G. (2016). R for Data Science. O’Reilly. http://r4ds.had.co.nz/
-
-Wickham, H. (2017). tidyverse: Easily Install and Load the 'Tidyverse'. R package version 1.2.1. https://CRAN.R-project.org/package=tidyverse
-
-Wilkinson, L. (2005). The Grammar of Graphics. Statistics and Computing. 2nd ed. New York, NY: Springer
-
-Xie, Y. and Allaire J.J. and Grolemund, G. (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
-
-Xie, Y. (2019). xaringan: Presentation Ninja. R package version 0.9.  https://CRAN.R-project.org/package=xaringan
-
+<small>
+* Allaire, J.J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W. and Iannone, R. (2019). rmarkdown: Dynamic Documents for R. R  package version 1.12. URL https://rmarkdown.rstudio.com.
+* Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, http://www.scipy.org/
+* Kaggle.com. (2019). Kaggle Machine Learning & Data Science Survey 2017. [online] Available at: https://www.kaggle.com/kaggle/kaggle-survey-2017 [Accessed 5 Jul. 2019].
+* Kaggle.com. (2019). Predicting R vs. Python | Kaggle. [online] Available at: https://www.kaggle.com/nanomathias/predicting-r-vs-python/notebook [Accessed 5 Jul. 2019].
+* McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56
+* Mangano, A. (2019). The Reticulate Package Solves the Hardest Problem in Data Science: People. [Blog] R Views. Available at: https://rviews.rstudio.com/2019/03/18/the-reticulate-package-solves-the-hardest-problem-in-data-science-people/ [Accessed 5 Jul. 2019].
+* Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
+* Python Software Foundation. Python Language Reference, version 2.7. Available at http://www.python.org
+* R Core Team (2018). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+* Ushey, Kevin, J. J. Allaire, and Yuan Tang. (2019). “Reticulate: Interface to ‘Python.’” https://CRAN.R-project.org/package=reticulate.
+* Xie, Y. and Allaire J.J. and Grolemund, G. (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
+* Xie, Y. (2019). xaringan: Presentation Ninja. R package version 0.9.  https://CRAN.R-project.org/package=xaringan
 </small>
 
-
-
-SciPy (pronounced “Sigh Pie”) is a Python-based ecosystem of open-source software for mathematics, science, and engineering. In particular, these are some of the core packages:
-
-NumPy: Base N-dimensional array package  
-SciPy library: Fundamental library for scientific computing  
-Matplotlib: Comprehensive 2D Plotting  
-IPython: Enhanced Interactive Console  
-Sympy: Symbolic mathematics  
-pandas: Data structures & analysis  
-
-
-
-
-rladies these
-
-rmarkdown
-xaringan
 
 ---
 
