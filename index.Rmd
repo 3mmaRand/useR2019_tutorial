@@ -2078,7 +2078,64 @@ for d in dirs_to_use:
 
 `r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
 ]
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
 
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+At this point you might want to verify you have the pandas dataframe
+
+You can use `repl_python()` in the console
+
+
+```{r eval=FALSE}
+>  repl_python() 
+Python 3.7.3 (C:\PROGRA~3\ANACON~1\python.exe)
+Reticulate 1.12.0.9003 REPL -- A Python interpreter in R
+>>> type(df_seg)
+<class 'pandas.core.frame.DataFrame'>
+>>> df_seg.shape
+(496, 5001)
+>>> type(df_info)
+<class 'pandas.core.frame.DataFrame'>
+>>> df_info.shape
+(496, 6)  
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+Or add a chunk
+
+.pull-left[
+`r kableExtra::text_spec("Insert Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
+````
+```{python}`r ''`
+########## PYTHON ##########
+type(df_seg)
+df_seg.shape
+type(df_info)
+df_info.shape
+```
+<class 'pandas.core.frame.DataFrame'>
+(496, 5001)
+<class 'pandas.core.frame.DataFrame'>
+(496, 6)
+````
+
+]
+.pull-right[
+
+`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+]
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%

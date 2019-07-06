@@ -218,6 +218,15 @@ for d in dirs_to_use:
 
 ```
 
+```{python}
+########## PYTHON ##########
+# check all is well
+type(df_seg)
+df_seg.shape
+type(df_info)
+df_info.shape
+```
+
 
 ## Analysis
 
@@ -237,17 +246,6 @@ access info from the new_data object
 ### Visualising the `r emo::ji("snake")` PCA
 
 #### First using Python
-
-
-<!-- Scree plot -->
-<!-- ```{python} -->
-<!-- ########## PYTHON ########## -->
-<!-- plt.figure() -->
-<!-- plt.plot(mdl.explained_variance_) -->
-<!-- plt.show() -->
-
-<!-- ``` -->
-
 
 Biplot
 ```{python}
@@ -282,24 +280,19 @@ ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
   geom_point()
 ```
 
-<!-- #### 3D plot in Python -->
+```{r}
+##########   R    ##########
+ggplot(data = df, aes(x = pca1, y = pca2)) +
+  geom_point() +
+  facet_grid(.~instrument)
+```
 
-<!-- Triplot of Python's PCA1 v PCA2 using Python -->
-<!-- ```{python} -->
-<!-- ########## PYTHON ########## -->
-<!-- fig = plt.figure() -->
-<!-- ax = Axes3D(fig) -->
-<!-- ax.scatter(new_data[p, 0], new_data[p, 1], new_data[p, 2], label = "Piano") -->
-<!-- ax.scatter(new_data[v, 0], new_data[v, 1], new_data[v, 2], label = "Violin") -->
-<!-- ax.scatter(new_data[pv, 0], new_data[pv, 1], new_data[pv, 2], label = "Violin_and_Piano") -->
-<!-- plt.legend() -->
-<!-- plt.show() -->
+### LDA in Python
 
-<!-- ``` -->
+```{python}
+########## PYTHON ##########
 
+```
 
 
-<!-- [1] Wickham, H. Bryan, J. (2019). readxl: Read Excel Files. R package version 1.3.1. -->
-<!--   https://CRAN.R-project.org/package=readxl -->
 
-refs need adding

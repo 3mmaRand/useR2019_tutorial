@@ -1060,7 +1060,7 @@ background-position: 95% 7%
 
 ## 🐍 Where is our NumPy array?
 Can Python can find it? 
-####🔍
+####🔎
 
 .footnote[  
 &lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: purple !important;" &gt;Extra exercise 3.&lt;/span&gt; How do you need to organise the list of lists in the DataFrame() command to get a 4 rows and 2 columns compared to 2 rows and 4 columns.
@@ -1075,7 +1075,7 @@ array([4, 5, 1, 6, 8])
 &gt;&gt;&gt;
 ```
 --
-#### 👍 🙌
+#### 👍 🎉
 
 Great, the Python session can see it!
 
@@ -2167,7 +2167,65 @@ for d in dirs_to_use:
 
 &lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
 ]
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
 
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+At this point you might want to verify you have the pandas dataframe
+
+You can use `repl_python()` in the console
+
+
+
+```r
+&gt;  repl_python() 
+Python 3.7.3 (C:\PROGRA~3\ANACON~1\python.exe)
+Reticulate 1.12.0.9003 REPL -- A Python interpreter in R
+&gt;&gt;&gt; type(df_seg)
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+&gt;&gt;&gt; df_seg.shape
+(496, 5001)
+&gt;&gt;&gt; type(df_info)
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+&gt;&gt;&gt; df_info.shape
+(496, 6)  
+```
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 2 Classification of audio data
+
+Or add a chunk
+
+.pull-left[
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: greenyellow !important;" &gt;Insert Python Chunk&lt;/span&gt;
+````
+```{python}
+########## PYTHON ##########
+type(df_seg)
+df_seg.shape
+type(df_info)
+df_info.shape
+```
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+(496, 5001)
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+(496, 6)
+````
+
+]
+.pull-right[
+
+&lt;span style=" font-weight: bold;    color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lavender !important;" &gt;=&amp;gt; Run&lt;/span&gt;
+]
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
