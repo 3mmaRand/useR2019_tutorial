@@ -613,12 +613,18 @@ A list is created like this:
 python_list = [4, 5, 1, 6, 8]
 ```
 
-Python uses `=` for assignment
 
 .footnote[
 [1] Python doesn't have a native array data structure
 ]
 
+--
+
+Python uses `=` for assignment
+
+--
+
+The square brackets denote a list
 ---
 background-image: url(pics/cute-snake.jpg)
 background-position: 95% 7%
@@ -655,7 +661,7 @@ python_list * 2
 ```
 
 
-😱
+😨
 
 ---
 background-image: url(pics/cute-snake.jpg)
@@ -691,13 +697,29 @@ import numpy as np
 python_array = np.array([4, 5, 1, 6, 8])
 ```
 
---
+---
+background-image: url(pics/cute-snake.jpg)
+background-position: 95% 7%
+
+
+# Python fundamentals
+
+
+The Python code looks like this:
+
+```python
+*import numpy as np
+python_array = np.array([4, 5, 1, 6, 8])
+```
+
 
 `import` in Python is the equivalent of `library()` in R
 
 --
 
-To use methods in NumPy (and other modules) we need to use `numpy.method_name()`.
+To use methods in NumPy (and other modules) we need to use the "dot" notation:
+
+`numpy.method_name()`
 
 To make this quicker to type it is common to use an alias. That's the `as np` bit
 
@@ -710,7 +732,7 @@ background-position: 95% 7%
 
 ```python
 import numpy as np
-python_array = np.array([4, 5, 1, 6, 8])
+*python_array = np.array([4, 5, 1, 6, 8])
 ```
 
 The second line of code creates the numpy array (from a list).
@@ -768,7 +790,7 @@ We will
 * Access the NumPy array from our R session  
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; Indicates some optional Extra exercise to try while you're waiting for me to move on.
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; Indicates an optional extra exercise to try while you're waiting for me to move on.
 ]
 
 ---
@@ -979,26 +1001,34 @@ background-position: 95% 7%
 
 
 Import the [NumPy package](http://www.numpy.org/)
+.pull-left[
 
 ```r
 &gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; 
 ```
+]
+
+.pull-right[
+You get command completion!
+]
+
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; 1. Create a list, `python_list`  
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; 2. Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 1.&lt;/span&gt; Create a list called `python_list`  
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 2.&lt;/span&gt; Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
 ]
 
 --
+
 and create an array in the console
 
 ```r
 &gt;&gt;&gt; python_array = np.array([4, 5, 1, 6, 8])
 &gt;&gt;&gt; 
 ```
-
 --
-### Success! 🎇 
+
+#### Success! 🎇 
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1011,6 +1041,11 @@ But nothing appears in your R environment!
   
 ![](pics/empty_env.png)
 
+.footnote[
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 1.&lt;/span&gt; Create a list called `python_list`  
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 2.&lt;/span&gt; Import pandas and create a small data frame. You'll need the DataFrame() method from pandas. As arguments, it will take lists of lists the same length
+]
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1019,7 +1054,11 @@ background-position: 95% 7%
 
 ## 🐍 Where is our NumPy array?
 Can Python can find it? 
-##🔍
+####🔎
+
+.footnote[  
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 3.&lt;/span&gt; How do you need to organise the list of lists in the DataFrame() command to get a 4 rows and 2 columns compared to 2 rows and 4 columns.
+]
 
 --
 
@@ -1030,7 +1069,7 @@ array([4, 5, 1, 6, 8])
 &gt;&gt;&gt;
 ```
 --
-## 👍 🙌
+#### 👍 🙌
 
 Great, the Python session can see it!
 
@@ -1064,7 +1103,7 @@ Find the size of `python_array` with:
 ```
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; What does `.size` give for the dataframe? Try `.shape`
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 4.&lt;/span&gt; What does `.size` give for the the list and dataframe? Try `.shape`
 ]
 
 --
@@ -1080,9 +1119,10 @@ background-position: 95% 7%
 
 ## 🐍Work with a NumPy array
 
-Can youfind the mean of `python_array`
+Can you find the mean of `python_array`
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; exercises median, max, min sum
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 5.&lt;/span&gt; Find other summary statistics for the array  
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 6.&lt;/span&gt; Is there a mean method for the dataframe? What about the list? Can you find the mean of your list?
 ]
 --
 
@@ -1092,7 +1132,6 @@ Can youfind the mean of `python_array`
 4.8
 &gt;&gt;&gt;
 ```
-
 `mean()` is an *method* of NumPy arrays.
 
 ---
@@ -1154,7 +1193,7 @@ But we **can** access the Python object using `py$...`
 ```
 
 .footnote[
-&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise&lt;/span&gt; Can you access the pandas dataframe? What sort of object is it?
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 7.&lt;/span&gt; Can you access the list and dataframe?
 ]
 
 ---
@@ -1198,6 +1237,10 @@ background-position: 95% 7%
 [1] 16 25  1 36 64
 ```
 
+.footnote[  
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 8.&lt;/span&gt; How do the list and dataframe behave? 
+]
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1208,7 +1251,6 @@ background-position: 95% 7%
 
 They behave the way you expect them to because they are converted R objects
 when used!
-
 
 
 ```r
@@ -1222,7 +1264,9 @@ numpy.ndarray `\(\rightarrow\)` array
 And look! 👀
 We can use R functions on python-created objects
 
-
+.footnote[   
+&lt;span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkturquoise !important;" &gt;Extra exercise 9.&lt;/span&gt; What is the object translation for the list and dataframe object is it?
+]
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
