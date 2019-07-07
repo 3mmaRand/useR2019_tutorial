@@ -66,8 +66,8 @@ You may need to add a new variable. The order of the paths matters - make sure y
 
 If you can describe, resolve or circumvent this in a better but still minimal way, please get in touch!
 
-#### Mac user with a  Error?
-A couple of mac users reported an error "No module names pandas"
+#### Mac user with a Error?
+A couple of mac users reported an error "No module named pandas"
 
 This solution given by William Farin - Thank you William!!
 
