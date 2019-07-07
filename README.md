@@ -69,7 +69,7 @@ If you can describe, resolve or circumvent this in a better but still minimal wa
 #### Mac user with a Error?
 A couple of mac users reported an error "No module named pandas"
 
-This solution given by William Farin - Thank you William!!
+This solution, given by William Farin, might help. Thank you William!!
 
 Create as Renviron. File in a terminal:
 
