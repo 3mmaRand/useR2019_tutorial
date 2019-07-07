@@ -39,11 +39,11 @@ Start RStudio, open tester.Rmd and hit the knit button.
 
 If all goes well, you should get this output: [tester.html](https://3mmarand.github.io/useR2019_tutorial/tester.html)
 
-#### Error?
+#### qt platform plugin Error?
 
 Did you get this error: 
 
-**This application has failed to start because it could not find or load the qt platform plugin "windows" in "" **
+*This application has failed to start because it could not find or load the qt platform plugin "windows" in "" *
 
 
 ![](pics/QT_error.png)
@@ -60,11 +60,30 @@ I have set mine to:
 
 `C:\Program Files\RStudio\bin\plugins; C:\ProgramData\Anaconda3\Library\plugins`
 
-You may need to add a new variable.
+You may need to add a new variable. The order of the paths matters - make sure you have the `C:\Program Files\RStudio\bin\plugins` first.
 
 ![ QT_PLUGIN_PATH environment variable in Advanced System settings](pics/env_variables.png)
 
 If you can describe, resolve or circumvent this in a better but still minimal way, please get in touch!
+
+#### Mac user with a  Error?
+A couple of mac users reported an error "No module names pandas"
+
+This solution given by William Farin - Thank you William!!
+
+Create as Renviron. File in a terminal:
+
+`touch $HOME/.Renviron`
+
+`open $HOME/.Renviron`
+
+Include inside the file:  
+
+`RETICULATE_PYTHON=/anaconda3/bin/python3`
+
+Close.
+
+Restart RStudio and you hopefully find the tester can now be knitted.
 
 #### Help!
 If you have any problems with the pre-tutorial instructions please get in touch with me on emma.rand@york.ac.uk and I'll do my best to help.

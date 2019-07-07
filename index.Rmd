@@ -930,7 +930,9 @@ background-position: 95% 7%
 
 # Using Python in the console
 
-## `r emo::ji("snake")` Change the Python version
+## `r emo::ji("snake")` Change the Python version.
+
+It is not necessary to do this if you're already using Python 3 but it won't hurt if you do.
 
 End the `repl_python` session:
 
@@ -971,6 +973,17 @@ On windows machines the paths will be short paths (8+3 components, no spaces) wi
 In my case, it is short for `C:/ProgramData/Anaconda3/python.exe`
 
 So I know I'm using Python 3
+
+--
+
+With `repl_python()`:
+
+```{r eval=FALSE}
+>  repl_python() 
+Python 3.7.3 (C:\PROGRA~3\ANACON~1\python.exe)
+Reticulate 1.12.0.9003 REPL -- A Python interpreter in R
+>>>  
+```
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1095,7 +1108,7 @@ background-position: 95% 7%
 
 ## `r emo::ji("snake")`Work with a NumPy array
 
-Can you find the mean of `python_array`
+Can you find the mean of `python_array`?
 .footnote[
 `r kableExtra::text_spec("Extra exercise 5.", background = "purple", color = "white", bold = TRUE)` Find other summary statistics for the array  
 `r kableExtra::text_spec("Extra exercise 6.", background = "purple", color = "white", bold = TRUE)` Is there a mean method for the dataframe? What about the list? Can you find the mean of your list?
@@ -1226,16 +1239,23 @@ when used!
 > class(py$python_array)
 [1] "array"
 ```
+--
+
 `py$python_array` is a one-dimensional array
-
-numpy.ndarray $\rightarrow$ array
-
-And look! `r emo::ji("look")`
-We can use R functions on python-created objects
 
 .footnote[   
 `r kableExtra::text_spec("Extra exercise 9.", background = "purple", color = "white", bold = TRUE)` What is the object translation for the list and dataframe object is it?
 ]
+--
+
+numpy.ndarray $\rightarrow$ array
+
+--
+
+And look! `r emo::ji("look")`
+We can use R functions on python-created objects
+
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -1250,6 +1270,8 @@ The mean...
 > mean(py$python_array)
 [1] 4.8
 ```
+
+--
 ... and length of the array
 ```{r eval=FALSE}
 > length(py$python_array)
@@ -1502,6 +1524,13 @@ background-position: 95% 7%
 
 File | New File | R Markdown
 
+Add a title.
+
+You could use your own or copy and paste a title from [Classifiying_music.html](music_ml/Classifiying_music.html)
+
+Add your name
+
+
 --
 
 Delete everything except:  
@@ -1509,11 +1538,6 @@ Delete everything except:
 * the first code chunk which begins:  
   ` ```{r setup, include=FALSE} `
 
---
-
-Add your name, and a title 
-
-You could copy and paste a title from [Classifiying_music.html](music_ml/Classifiying_music.html)
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1557,7 +1581,7 @@ Add a little introduction.
 
 You can make your own notes or copy and paste from [Classifiying_music.html](music_ml/Classifiying_music.html)  
 
-**Save your file**
+**Save your file** The Save directory will be the Project directory, "music_ml". Do not change that!
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1617,11 +1641,29 @@ Use the green arrow on the right of the chunk to run it.
 
 ![r pkgs code chunk with the run code green arrow on the right indicated](pics/run_chunk_r.png)
 
-From now on 
-
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
-
+From now on  
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`  
 means use the green button to run the chunk.
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Run a line in a chunk
+
+Sometimes we will modify a chunk. In this case, you don't need to run the whole chunk, just the added line. You can do this by selected the line and doing Ctrl-enter<sup>1</sup>
+
+![r pkgs code chunk with one line selected and Ctrl-enter indicated](pics/run_chunk_line.png)
+
+From now on  
+`r kableExtra::text_spec("=> Run added line", background = "lavender", bold = TRUE, color = "black")`  
+means you don't need to run the whole chunk, just the most recently added line. 
+
+.footnote[
+[1] Unless you have set the short cut to something else.
+]
 
 ---
 background-image: url(pics/reticulated_python.png)
@@ -1633,7 +1675,7 @@ background-position: 95% 7%
 
 Now we'll add a chunk to import the Python modules we will need.
 
-In Part 1, we will use the os module
+In Part 1, we will use the `OS` module which provides a way of using operating system dependent functionality.
 
 --
 
@@ -1649,12 +1691,14 @@ import os
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 --
 
-To use `os` methods interactively in later Python code chunks be sure to run this code chunk.
+Feeling unnerved by not being able to see that anything has happened?
+
+You can check the Python session on the command line in the console: `py$` should give you command completion options which include `py$os`
 
 --
 
@@ -1704,7 +1748,7 @@ os.getcwd()
 ````
 ]
 .pull-right[
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 --
@@ -1748,7 +1792,7 @@ py$os$getcwd()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 ---
@@ -1777,7 +1821,7 @@ r.getwd()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -1810,7 +1854,7 @@ spectrum <- read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 --
@@ -1841,7 +1885,7 @@ dim(spectrum)
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 ---
@@ -1852,11 +1896,67 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-Can you use the `r emo::ji("snake")` Pandas method `shape` in a new python chunk to achieve the same thing?
+Can you access the `spectrum` dataframe in a Python chunk and find out what type of object it is in the Python session?
 
 --
 
    Hint: the dataframe is `r.spectrum`
+
+--
+
+.pull-left[
+`r kableExtra::text_spec("Insert Python chunk", background = "greenyellow", bold = TRUE, color = "black")`
+
+````
+```{python}`r ''`
+########## PYTHON ##########
+type(r.spectrun)
+```
+<class 'pandas.core.frame.DataFrame'>
+````
+]
+.pull-right[
+
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
+]
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+It is a `Pandas`<sup>1</sup> dataframe. 
+
+Pandas is module that provides dataframe data structures and analysis tools for working with them. A Pandas dataframe is just like an R dataframe.
+
+.footnote[
+[1] McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56 
+]
+--
+
+In R, we access the column of a dataframe with `dataframe$colname`
+
+--
+
+In Python we access a Pandas dataframe column with `dataframe["colname"]`
+
+
+
+---
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# How: Using Python in R Markdown
+
+## Part 1 Building our understanding
+
+Can you use Python's `shape` in a new python chunk to determine the dimensions of the dataframe?
+
+--
+
+   Hint: Python methods are aplied with the dot notation
 
 --
 
@@ -1874,7 +1974,7 @@ r.spectrum.shape
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 That's right!
@@ -1893,7 +1993,7 @@ background-position: 95% 7%
 Using R to find the mean and s.d. of the second feature<sup>1</sup>
 
 .footnote[
-[1] There's nothing specials about feature 2. I'm avoiding the first feature simply because it is atypical
+[1] There's nothing special about feature 2. I'm avoiding the first feature simply because it is atypical
 ]
 
 --
@@ -1914,7 +2014,7 @@ sd(spectrum$`1`)
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -1927,6 +2027,10 @@ background-position: 95% 7%
 ## Part 1 Building our understanding
 
 Can you use Python to achieve the same:
+
+--
+
+   Hint: the columns of pandas dataframes are accessed with `dataframe["colname"]`
 
 --
 
@@ -1945,7 +2049,7 @@ r.spectrum["1"].std()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 Well done!
@@ -1969,11 +2073,11 @@ background-position: 95% 7%
 
 ## Part 1 Building our understanding
 
-Now read in the same file using Python.
+Now read in the same file using Python. We will use Python in the second part of the tutorial to read in all our data.
 
 --
 
-You'll need to first add the `Pandas`<sup>1</sup> module to your list of import statements in the Python chunk called mods
+You'll need to first add the `Pandas` module to your list of import statements in the Python chunk called mods
 
 --
 
@@ -1990,12 +2094,10 @@ import pandas as pd
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
-.footnote[
-[1] McKinney, W. (2010) Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56 
-]
+
 ---
 background-image: url(pics/reticulated_python.png)
 background-position: 95% 7%
@@ -2018,7 +2120,7 @@ python_spectrum = pd.read_excel("Piano/01 Ballade No. 1, Op. 23_segments.xlsx")
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -2053,11 +2155,10 @@ background-position: 95% 7%
 ## Part 2 Classification of audio data
 
 ### Data import
-Copy the importing code from: [Classifiying_music.html](music_ml/Classifiying_music.html)
-
-Insert a new Python chunk and paste the code in
+Copy the importing code from: [Classifiying_music.html](music_ml/Classifiying_music.html) and paste the code in to a Python chunk
 
 .pull-left[
+`r kableExtra::text_spec("Insert Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -2076,7 +2177,7 @@ for d in dirs_to_use:
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 ---
 background-image: url(pics/reticulated_python.png)
@@ -2086,7 +2187,9 @@ background-position: 95% 7%
 
 ## Part 2 Classification of audio data
 
-At this point you might want to verify you have the pandas dataframe
+At this point you might want to verify you have the pandas dataframe.
+
+--
 
 You can use `repl_python()` in the console
 
@@ -2134,7 +2237,7 @@ df_info.shape
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 ---
 background-image: url(pics/reticulated_python.png)
@@ -2156,7 +2259,7 @@ background-position: 95% 7%
 
 ## Part 2 Classification of audio data
 
-### Principal Component Analysis (PCA) in Python
+**Principal Component Analysis (PCA) in Python**
 
 You'll need to first PCA from the `scikit-learn`<sup>1</sup> module to your list of import statements in the Python chunk called mods
 
@@ -2166,6 +2269,7 @@ You'll need to first PCA from the `scikit-learn`<sup>1</sup> module to your list
 --
 
 .pull-left[
+`r kableExtra::text_spec("Modify Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python mods}`r ''`
 ########## PYTHON ##########
@@ -2180,7 +2284,7 @@ from sklearn.decomposition.pca import PCA
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run added line", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 
@@ -2195,6 +2299,7 @@ background-position: 95% 7%
 The PCA is carried out with
 
 .pull-left[
+`r kableExtra::text_spec("Insert Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -2208,7 +2313,7 @@ new_data = mdl.fit_transform(df_seg)
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 `new_data` contains the Principle Component scores
@@ -2222,16 +2327,15 @@ background-position: 95% 7%
 
 ## Part 2: Visualising the `r emo::ji("snake")` PCA
 
-First using Python.
-
-You'll need to first PCA from the `matplotlib.pyplot`<sup>1</sup> module to your list of import statements in the Python chunk called mods
+**First using Python.** You'll need to add the `matplotlib.pyplot`<sup>1</sup> module to your list of import statements in the Python chunk called mods
 
 .footnote[
-[1] Pedregosa et al. (2011) Scikit-learn: Machine Learning in Python. JMLR 12: 2825-2830 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
+[1]  Hunter, J. D. (2007). "Matplotlib: A 2D Graphics Environment", Computing in Science & Engineering, vol. 9, no. 3.
 ]
 --
 
 .pull-left[
+`r kableExtra::text_spec("Modify Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python mods}`r ''`
 ########## PYTHON ##########
@@ -2248,7 +2352,7 @@ import matplotlib.pyplot as plt
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run added line", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 ---
@@ -2265,6 +2369,7 @@ Copy the Biplot code from: [Classifiying_music.html](music_ml/Classifiying_music
 
 Insert a new Python chunk and paste the code in
 .pull-left[
+`r kableExtra::text_spec("Insert Python Chunk", background = "greenyellow", bold = TRUE, color = "black")`
 ````
 ```{python}`r ''`
 ########## PYTHON ##########
@@ -2281,7 +2386,7 @@ plt.figure()
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 You should see the Python plot in your file!
@@ -2324,7 +2429,7 @@ ggplot(data = df, aes(x = pca1, y = pca2, color = instrument)) +
 ]
 .pull-right[
 
-`r kableExtra::text_spec("=> Run", background = "lavender", bold = TRUE, color = "black")`
+`r kableExtra::text_spec("=> Run Chunk", background = "lavender", bold = TRUE, color = "black")`
 ]
 
 You should see the R plot in your file!
@@ -2341,7 +2446,31 @@ background-position: 95% 7%
 Epic! Python and R plots in one doc!
 
 ---
-# References and credits
+background-image: url(pics/reticulated_python.png)
+background-position: 95% 7%
+
+# The End, Congratulations!
+
+By the end of the tutorial you should be able to:  
+
+* pass objects between simultaneous R and Python sessions  
+
+* use Python methods in R code  
+
+* incorporate Python snippets in to your R workflow even if you don't understand in detail how they work  
+
+## Python scripts
+* [tutorial_code_sklearn.py](tutorial_code_sklearn.py)  
+  Lots more machine learning methods applied to this data
+* [SoundSegment.py](SoundSegment.py)  
+  The class that processed audio
+* [generateSegments.py](generateSegments.py)  
+  script that calls SoundSegment.py and outputs all the xlsx files
+  
+ 
+  
+---
+## References and credits
 
 <small>
 * Allaire, J.J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W. and Iannone, R. (2019). rmarkdown: Dynamic Documents for R. R  package version 1.12. URL https://rmarkdown.rstudio.com.
