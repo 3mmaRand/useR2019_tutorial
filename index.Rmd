@@ -1502,7 +1502,7 @@ background-size: 100px
 
 ### Key points from the demo
 
-* blends narative text with analysis code and output  
+* blends narrative text with analysis code and output  
 * human readable  
 * YAML header between the  \-\-\-
 * code chunk options control whether the code and its output end up in your 'knitted' document  
