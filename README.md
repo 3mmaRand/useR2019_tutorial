@@ -85,9 +85,6 @@ Close.
 
 Restart RStudio and you hopefully find the tester can now be knitted.
 
-#### Help!
-If you have any problems with the pre-tutorial instructions please get in touch with me on emma.rand@york.ac.uk and I'll do my best to help.
-
 
 ### During the tutorial
 
