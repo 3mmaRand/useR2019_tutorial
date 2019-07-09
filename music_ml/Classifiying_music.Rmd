@@ -265,9 +265,6 @@ plt.show()
 
 #### Now using R
 
-<!-- screeplot -->
-
-
 Biplot
 
 ```{r}
@@ -287,12 +284,6 @@ ggplot(data = df, aes(x = pca1, y = pca2)) +
   facet_grid(.~instrument)
 ```
 
-### LDA in Python
-
-```{python}
-########## PYTHON ##########
-
-```
 
 
 
