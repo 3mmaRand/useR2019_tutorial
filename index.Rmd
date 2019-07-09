@@ -1307,7 +1307,7 @@ Remember this?
 
 We have access to the `np` object which results from importing `NumPy` as `np` in our Python session.
 
-This gives us access to all the NumPy attributes and methods.
+This gives us access to all the NumPy methods.
 
 
 ---
@@ -1320,15 +1320,15 @@ background-position: 95% 7%
 
 .pull-left[
 
-`r emo::ji("snake")` In Python `np` attributes are applied by following the object with a dot: 
+`r emo::ji("snake")` In Python `np` methods are applied by following the object with a dot: 
 
-_`object_name.attribute_name`_
+_`object_name.method_name()`_
 
-For example, we found the size of `python_array` with:
+For example, we found the mean of `python_array` with:
 
 ```{r eval=FALSE}
->>> python_array.size
-5
+>>> python_array.mean()
+4.8
 ```
 ]
 .footnote[   
@@ -1337,15 +1337,15 @@ For example, we found the size of `python_array` with:
 --
 .pull-right[
 
-`r emo::ji("blue heart")` In R we access and apply `np` attributes in a R like way: 
+`r emo::ji("blue heart")` In R we access and apply `np` methods in a R like way: 
 
-`py$np$` _`attribute_name(object_name)`_
+`py$np$` _`method_name(object_name)`_
 
-So to use the size attribute on `py$python_array`:
+So to use the mean method on `py$python_array`:
 
 ```{r eval=FALSE}
-> py$np$size(py$python_array)
-[1] 5
+> py$np$mean(py$python_array)
+[1] 4.8
 ```
 ]
 
