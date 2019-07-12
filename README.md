@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3333815.svg)](https://doi.org/10.5281/zenodo.3333815)
 # useR2019_tutorial
 
 ## Keeping an exotic pet in your home! Taming Python to live in RStudio because sometimes the best language is both!
